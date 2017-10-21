@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Character = ({ image, name, isBookmarked }) => (
-  <li className="character">MyComponent</li>
+import CharacterImage from './CharacterImage';
+import CharacterFooter from './CharacterFooter';
+
+const Character = ({ name, thumbnail }) => (
+  <li className="character">
+    <CharacterImage name={name} {...thumbnail} />
+    <CharacterFooter name={name} />
+  </li>
 );
 
 Character.propTypes = {};
