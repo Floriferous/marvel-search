@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CharacterList = props => <div>List!</div>;
+const CharacterList = ({ characters }) => (
+  <div className="character-list">List!</div>
+);
 
 CharacterList.propTypes = {};
 
