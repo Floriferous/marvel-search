@@ -1,15 +1,21 @@
 body,
-html  {
+html,
+#root {
   font-size: 20px;
   color: #666;
   margin: 0;
   background: #f8f8f8;
+  display: flex;
+  flex-grow: 1;
+  min-height: 100%;
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100%;
+  flex-grow: 1;
 }
 
 h1 {
@@ -105,4 +111,10 @@ input {
   .character {
     width: calc(100% / 1);
   }
+}
+
+.disclaimer {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
 }
