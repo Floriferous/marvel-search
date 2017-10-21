@@ -1,6 +1,6 @@
 import * as api from '../api';
 
-const createSearchKey = (search, pagination) => search + pagination;
+const createSearchKey = (search, pagination) => `${search}-${pagination}`;
 
 const fetchCharacters = (dispatch, getState) => {
   const { search, pagination, searchResults } = getState();
@@ -12,7 +12,7 @@ const fetchCharacters = (dispatch, getState) => {
   return api.fetchCharacters(search).then((characters) => {
     dispatch({
       type: 'ADD_SEARCH_RESULTS',
-      search: searchKey,
+      searchKey,
       characters,
     });
   });
