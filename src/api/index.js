@@ -11,12 +11,12 @@ const endpoint = 'https://gateway.marvel.com/v1/public/characters';
  *
  * @return {String}
  */
-const createQuery = params =>
+export const createQuery = params =>
   `?${Object.keys(params)
     .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
     .join('&')}`;
 
-const createUrl = (search, pagination) =>
+export const createUrl = (search, pagination) =>
   endpoint +
   createQuery({
     apikey: keys.public,
@@ -26,7 +26,7 @@ const createUrl = (search, pagination) =>
     offset: pagination * constants.CHARACTERS_PER_PAGE || 0,
   });
 
-const fetchCharacters = (search, pagination) =>
+export const fetchCharacters = (search, pagination) =>
   fetch(createUrl(search, pagination), {
     method: 'GET',
     header: {
@@ -41,5 +41,3 @@ const fetchCharacters = (search, pagination) =>
       throw new Error(response.status);
     })
     .then(json => json.data);
-
-export default fetchCharacters;
