@@ -10,6 +10,7 @@ const fetchCharacters = (dispatch, getState) => {
   if (searchResults[searchKey]) {
     return Promise.resolve();
   }
+
   return api.fetchCharacters(search).then((characters) => {
     dispatch({
       type: 'ADD_SEARCH_RESULTS',
@@ -20,10 +21,7 @@ const fetchCharacters = (dispatch, getState) => {
 };
 
 export const changeSearch = search => (dispatch, getState) => {
-  dispatch({
-    type: 'CHANGE_SEARCH',
-    search,
-  });
+  dispatch({ type: 'CHANGE_SEARCH', search });
 
   if (search) {
     fetchCharacters(dispatch, getState);
@@ -33,10 +31,7 @@ export const changeSearch = search => (dispatch, getState) => {
 };
 
 export const changePagination = pagination => (dispatch, getState) => {
-  dispatch({
-    type: 'CHANGE_PAGINATION',
-    pagination,
-  });
+  dispatch({ type: 'CHANGE_PAGINATION', pagination });
 
   fetchCharacters(dispatch, getState);
 };
