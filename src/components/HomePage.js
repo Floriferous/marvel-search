@@ -1,8 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-const HomePage = props => <div>HomePage</div>;
+import Input from './Input';
+import CharacterList from './CharacterList';
 
-HomePage.propTypes = {};
+const HomePage = () => (
+  <main>
+    <h1>Marvel Search</h1>
+    <Input />
+    <CharacterList />
+  </main>
+);
 
 export default HomePage;
