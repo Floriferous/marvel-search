@@ -40,4 +40,4 @@ export const fetchCharacters = (search, pagination) =>
       }
       throw new Error(response.status);
     })
-    .then(json => json.data);
+    .then(json => json.data.results);
