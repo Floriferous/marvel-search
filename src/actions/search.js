@@ -27,6 +27,8 @@ export const changeSearch = search => (dispatch, getState) => {
 
   if (search) {
     fetchCharacters(dispatch, getState);
+  } else {
+    dispatch({ type: 'RESET_PAGINATION' });
   }
 };
 
