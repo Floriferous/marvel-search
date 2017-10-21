@@ -32,8 +32,6 @@ export const changeSearch = search => (dispatch, getState) => {
   }
 };
 
-export const resetSearch = () => ({ type: 'RESET_SEARCH' });
-
 export const changePagination = pagination => (dispatch, getState) => {
   dispatch({
     type: 'CHANGE_PAGINATION',
