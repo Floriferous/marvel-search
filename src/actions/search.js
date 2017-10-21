@@ -1,6 +1,7 @@
 import * as api from '../api';
 
-const createSearchKey = (search, pagination) => `${search}-${pagination}`;
+export const createSearchKey = (search, pagination) =>
+  `${search}-${pagination}`;
 
 const fetchCharacters = (dispatch, getState) => {
   const { search, pagination, searchResults } = getState();
@@ -24,7 +25,9 @@ export const changeSearch = search => (dispatch, getState) => {
     search,
   });
 
-  fetchCharacters(dispatch, getState);
+  if (search) {
+    fetchCharacters(dispatch, getState);
+  }
 };
 
 export const resetSearch = () => ({ type: 'RESET_SEARCH' });
