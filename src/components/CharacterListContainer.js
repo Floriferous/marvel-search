@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { createSearchKey } from '../actions/search';
+import * as actions from '../actions/bookmarks';
 
 /**
  * getClosestSearchResults - Searches for the closest search results
@@ -64,6 +65,7 @@ const mapStateToProps = ({
   };
 };
 
-const CharacterListContainer = component => connect(mapStateToProps)(component);
+const CharacterListContainer = component =>
+  connect(mapStateToProps, actions)(component);
 
 export default CharacterListContainer;

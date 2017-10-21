@@ -6,7 +6,7 @@ import Character from './Character';
 import Empty from './Empty';
 import Loading from './Loading';
 
-const CharacterList = ({ characters, isSearching }) => {
+const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
   if (isSearching && !characters) {
     return <Loading />;
   }
@@ -17,7 +17,11 @@ const CharacterList = ({ characters, isSearching }) => {
   return (
     <div className="character-list">
       {characters.map(character => (
-        <Character key={character.id} {...character} />
+        <Character
+          key={character.id}
+          character={character}
+          toggleBookmark={toggleBookmark}
+        />
       ))}
     </div>
   );
@@ -26,6 +30,7 @@ const CharacterList = ({ characters, isSearching }) => {
 CharacterList.propTypes = {
   characters: PropTypes.arrayOf(PropTypes.object),
   isSearching: PropTypes.bool.isRequired,
+  toggleBookmark: PropTypes.func.isRequired,
 };
 
 CharacterList.defaultProps = {
