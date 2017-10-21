@@ -12,11 +12,7 @@ const fetchCharacters = (dispatch, getState) => {
   }
 
   return api.fetchCharacters(search).then((characters) => {
-    dispatch({
-      type: 'ADD_SEARCH_RESULTS',
-      searchKey,
-      characters,
-    });
+    dispatch({ type: 'ADD_SEARCH_RESULTS', searchKey, characters });
   });
 };
 

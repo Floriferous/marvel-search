@@ -9,13 +9,12 @@ import Loading from './Loading';
 const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
   if (isSearching && !characters) {
     return <Loading />;
-  }
-  if (characters.length === 0) {
+  } else if (characters.length === 0) {
     return <Empty isSearching={isSearching} />;
   }
 
   return (
-    <div className="character-list">
+    <ul className="character-list">
       {characters.map(character => (
         <Character
           key={character.id}
@@ -23,7 +22,7 @@ const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
           toggleBookmark={toggleBookmark}
         />
       ))}
-    </div>
+    </ul>
   );
 };
 
