@@ -6,8 +6,10 @@ import CharacterFooter from './CharacterFooter';
 
 const Character = ({ name, thumbnail }) => (
   <li className="character">
-    <CharacterImage name={name} {...thumbnail} />
-    <CharacterFooter name={name} />
+    <div className="content">
+      <CharacterImage name={name} {...thumbnail} />
+      <CharacterFooter name={name} />
+    </div>
   </li>
 );
 
