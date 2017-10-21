@@ -8,6 +8,7 @@ html,
   display: flex;
   flex-grow: 1;
   min-height: 100%;
+  font-family: 'Bangers', cursive;
 }
 
 main {
@@ -32,6 +33,7 @@ input {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   outline-style: none;
   border: none;
+  font-family: inherit;
 }
 
 .character-list {
