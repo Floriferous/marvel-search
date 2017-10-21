@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Empty = () => <h2>No results for the moment!</h2>;
+const Empty = ({ isSearching }) => (
+  <h2>
+    {isSearching
+      ? "Couln't find any results for this query"
+      : 'Start searching or add bookmarks to find your heroes'}
+  </h2>
+);
 
-Empty.propTypes = {};
+Empty.propTypes = {
+  isSearching: PropTypes.bool.isRequired,
+};
 
 export default Empty;
