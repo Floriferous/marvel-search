@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import CharacterImage from './CharacterImage';
 import CharacterFooter from './CharacterFooter';
+import CharacterBookmarkHelper from './CharacterBookmarkHelper';
 
 const Character = (props) => {
   const {
@@ -19,7 +20,7 @@ const Character = (props) => {
         <CharacterImage name={name} {...thumbnail} />
         <CharacterFooter name={name} />
       </div>
-      <p className="helper">Click to bookmark</p>
+      <CharacterBookmarkHelper isBookmarked={isBookmarked} />
     </li>
   );
 };
