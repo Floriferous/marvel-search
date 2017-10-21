@@ -23,6 +23,13 @@ const CharacterList = ({ characters, isSearching }) => {
   );
 };
 
-CharacterList.propTypes = {};
+CharacterList.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object),
+  isSearching: PropTypes.bool.isRequired,
+};
+
+CharacterList.defaultProps = {
+  characters: undefined,
+};
 
 export default CharacterListContainer(CharacterList);
