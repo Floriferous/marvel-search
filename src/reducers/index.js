@@ -1,3 +1,9 @@
-const marvel = () => {};
+import { combineReducers } from 'redux';
 
-export default marvel;
+import search from './search';
+
+const rootReducer = combineReducers({
+  search,
+});
+
+export default rootReducer;

@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ value, onChange }) => (
-  <input type="text" value={value} onChange={onChange} autoFocus />
+import InputContainer from './InputContainer';
+
+const Input = ({ search, changeSearch }) => (
+  <input type="text" value={search} onChange={changeSearch} autoFocus />
 );
 
 Input.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  search: PropTypes.string.isRequired,
+  changeSearch: PropTypes.func.isRequired,
 };
 
-export default Input;
+export default InputContainer(Input);
