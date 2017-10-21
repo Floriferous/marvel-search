@@ -74,6 +74,10 @@ input {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.character .content.bookmarked {
+  border: 2px solid red;
+}
+
 .character .helper {
   position: absolute;
   bottom: 0;

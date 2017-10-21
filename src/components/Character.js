@@ -5,11 +5,17 @@ import CharacterImage from './CharacterImage';
 import CharacterFooter from './CharacterFooter';
 
 const Character = (props) => {
-  const { character: { name, thumbnail }, toggleBookmark } = props;
+  const {
+    character: { name, thumbnail, isBookmarked },
+    toggleBookmark,
+  } = props;
 
   return (
     <li className="character">
-      <div className="content" onClick={() => toggleBookmark(props.character)}>
+      <div
+        className={`content${isBookmarked ? ' bookmarked' : ''}`}
+        onClick={() => toggleBookmark(props.character)}
+      >
         <CharacterImage name={name} {...thumbnail} />
         <CharacterFooter name={name} />
       </div>
@@ -25,6 +31,7 @@ Character.propTypes = {
       path: PropTypes.string.isRequired,
       extension: PropTypes.string.isRequired,
     }).isRequired,
+    isBookmarked: PropTypes.bool.isRequired,
   }).isRequired,
   toggleBookmark: PropTypes.func.isRequired,
 };

@@ -58,8 +58,15 @@ const mapStateToProps = ({
     characters = Object.keys(bookmarks).map(bookmarkId => bookmarks[bookmarkId]);
   }
 
+  const charactersWithBookmarks =
+    characters &&
+    characters.map(character => ({
+      ...character,
+      isBookmarked: !!bookmarks[character.id],
+    }));
+
   return {
-    characters,
+    characters: charactersWithBookmarks,
     isSearching: !!search,
     isLoading,
   };
