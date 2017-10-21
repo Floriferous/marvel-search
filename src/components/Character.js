@@ -10,6 +10,7 @@ const Character = ({ name, thumbnail }) => (
       <CharacterImage name={name} {...thumbnail} />
       <CharacterFooter name={name} />
     </div>
+    <p className="helper">Click to bookmark</p>
   </li>
 );
 
