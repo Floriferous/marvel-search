@@ -9,6 +9,7 @@ const Input = ({ search, changeSearch }) => (
     value={search}
     onChange={event => changeSearch(event.target.value)}
     autoFocus
+    placeholder="Spider-man"
   />
 );
 
