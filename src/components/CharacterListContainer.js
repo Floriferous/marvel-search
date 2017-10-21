@@ -25,7 +25,7 @@ const getClosestSearchResults = (searchResults, search, pagination) => {
   if (search.length === 1) {
     return {
       characters: searchResults[createSearchKey(search, pagination)],
-      isLoading: false,
+      isLoading: false, // taken care of by CharacterList
     };
   }
 
