@@ -6,8 +6,8 @@ const mapStateToProps = ({
 }) => ({
   characters: search
     ? searchResults[createSearchKey(search, pagination)]
-    : bookmarks,
-  isBookmark: !!search,
+    : Object.keys(bookmarks).map(bookmarkId => bookmarks[bookmarkId]),
+  isSearching: !!search,
 });
 
 const CharacterListContainer = component => connect(mapStateToProps)(component);
