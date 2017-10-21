@@ -4,10 +4,14 @@ import PropTypes from 'prop-types';
 import CharacterListContainer from './CharacterListContainer';
 import Character from './Character';
 import Empty from './Empty';
+import Loading from './Loading';
 
-const CharacterList = ({ characters, isBookmark }) => {
-  if (!characters || characters.length === 0) {
-    return <Empty noSearch={isBookmark} />;
+const CharacterList = ({ characters, isSearching }) => {
+  if (isSearching && !characters) {
+    return <Loading />;
+  }
+  if (characters.length === 0) {
+    return <Empty isSearching={isSearching} />;
   }
 
   return (
