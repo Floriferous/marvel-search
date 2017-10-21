@@ -20,7 +20,7 @@ main {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 3em;
   color: #444;
 }
 
@@ -45,6 +45,7 @@ input {
 
 .empty {
   padding: 32px;
+  opacity: 0.5;
 }
 
 .character {
