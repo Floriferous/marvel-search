@@ -15,11 +15,20 @@ import { createSearchKey } from '../actions/search';
  * @param {String} search        current search string
  * @param {String} pagination    current pagination
  *
- * @return {Object} Description
+ * @return {Object}
  */
 const getClosestSearchResults = (searchResults, search, pagination) => {
   let broaderResults;
   let isExactSearch;
+
+  // Return immediately if search length equals 1
+  if (search.length === 1) {
+    return {
+      characters: searchResults[createSearchKey(search, pagination)],
+      isLoading: false,
+    };
+  }
+
   // Only iterate until search is one character, else it will look for
   // an empty key
   for (let i = 0; i < search.length - 1; i += 1) {
