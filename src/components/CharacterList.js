@@ -1,16 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CharacterListContainer from './CharacterListContainer';
+import Character from './Character';
 import Empty from './Empty';
 
-const CharacterList = ({ characters }) => {
+const CharacterList = ({ characters, isBookmark }) => {
   if (!characters || characters.length === 0) {
-    return <Empty />;
+    return <Empty noSearch={isBookmark} />;
   }
 
-  return <div className="character-list">List!</div>;
+  return (
+    <div className="character-list">
+      {characters.map(character => (
+        <Character key={character.id} {...character} />
+      ))}
+    </div>
+  );
 };
 
 CharacterList.propTypes = {};
 
-export default CharacterList;
+export default CharacterListContainer(CharacterList);
