@@ -17,6 +17,7 @@ export const shouldSearch = (newSearch, searchResults, closestResults) => {
       return false;
     }
   } else if (newSearch === '0' || newSearch === 0) {
+    // this is a Marvel API bug
     return false;
   }
 
@@ -40,7 +41,10 @@ export const fetchCharacters = (dispatch, getState) => {
     pagination,
   );
 
-  if (!shouldSearch(search, searchResults, closestResults)) {
+  if (
+    pagination === 0 &&
+    !shouldSearch(search, searchResults, closestResults)
+  ) {
     return Promise.resolve();
   }
 

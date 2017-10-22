@@ -97,14 +97,22 @@ describe('search action creators', () => {
       });
 
       it('does not dispatch ADD_SEARCH_RESULTS if search is 0', () => {
-        // this is a Marvel API bug
-        store = mockStore({
-          search: '0',
-          pagination: 0,
-          searchResults: {},
-        });
+        store = mockStore({ search: '0', pagination: 0, searchResults: {} });
         const newSearch = '0';
         const expectedActions = ['CHANGE_SEARCH'];
+        return store.dispatch(search.changeSearch(newSearch)).then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
+      });
+
+      it('does dispatch ADD_SEARCH_RESULTS if pagination is larger than 0', () => {
+        store = mockStore({
+          search: 'asd',
+          pagination: 1,
+          searchResults: { 'a-0': [] },
+        });
+        const newSearch = 'asd';
+        const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
