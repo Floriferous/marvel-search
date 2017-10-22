@@ -47,11 +47,13 @@ input {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  padding: 0;
 }
 
 .character-list .helper {
   width: 100%;
   text-align: center;
+  margin-bottom: 0;
 }
 
 .empty {
