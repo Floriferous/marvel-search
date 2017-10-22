@@ -4,11 +4,11 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 
 ## Table of Contents
 
-- [Installation](#Installation)
-- [Search optimization](#search-optimization)
-- [Tradeoffs and limitations](#tradeoffs-and-limitations)
-- [Future work](#future-work)
-- [Testing](#testing)
+- [Installation](#markdown-header-installation)
+- [Search optimization](#markdown-header-search-optimization)
+- [Tradeoffs and limitations](#markdown-header-tradeoffs-and-limitations)
+- [Future work](#markdown-header-future-work)
+- [Testing](#markdown-header-testing)
 
 ## Installation
 
