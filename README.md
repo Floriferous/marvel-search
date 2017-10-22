@@ -6,6 +6,7 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 
 - [Installation](#markdown-header-installation)
 - [Code structure](#markdown-header-code-structure)
+- [App design](#markdown-header-app-design)
 - [React component design](#markdown-header-react-component-design)
 - [Redux design](#markdown-header-redux-design)
 - [Search optimization](#markdown-header-search-optimization)
@@ -44,6 +45,13 @@ The code is structured as follows in the `src` folder:
 
 Each folder with JS also contains its own `test` folder, where all the tests are located.
 
+# App design
+
+In the spirit of superheroes and comic books, I wanted the app to be big, bold, and playful. This was created by the MARVEL-like `Bangers` font, large font-sizes, and big 300x450 images that take up a lot of space. MARVEL's art is beautiful and should be enjoyed by the fans that would use an app like this.
+
+MARVEL's iconic brand color is used in the header and for bookmarked heroes, and should resonate with the fans.
+
+Beyond that, an aesthetically clean palette with a pleasant contrast (soft-black on white and grey) was used, combined with bold hover effects to create a simple but elegant experience.
 
 ## React component design
 
