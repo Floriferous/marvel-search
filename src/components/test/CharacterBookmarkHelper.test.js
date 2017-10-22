@@ -31,6 +31,8 @@ describe('CharacterBookmarkHelper', () => {
       .find('p')
       .text();
 
+    expect(text1.length).toBeGreaterThan(0);
+    expect(text2.length).toBeGreaterThan(0);
     expect(text1).not.toBe(text2);
   });
 });
