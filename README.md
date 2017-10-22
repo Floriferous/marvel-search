@@ -7,6 +7,7 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 - [Installation](#markdown-header-installation)
 - [Code structure](#markdown-header-code-structure)
 - [React component design](#markdown-header-react-component-design)
+- [Redux design](#markdown-header-redux-design)
 - [Search optimization](#markdown-header-search-optimization)
 - [Tradeoffs and limitations](#markdown-header-tradeoffs-and-limitations)
 - [Future work](#markdown-header-future-work)
@@ -44,11 +45,21 @@ Each folder with JS also contains its own `test` folder, where all the tests are
 
 ## React component design
 
-All of the React components are stateless components, with the exception of CharacterListContainer and InputContainer which are the only HOCs connecting to the redux store.
+- All of the React components are stateless components, with the exception of CharacterListContainer and InputContainer which are the only HOCs connecting to the redux store.
+- The components adhere as much as possible to the 'single-responsibility' philosophy, where each component handles (ideally) only a single task.
+- Each of the components has 100% code coverage.
 
-The components adhere as much as possible to the 'single-responsibility' philosophy, where each component handles (ideally) only a single task.
+## Redux design
 
-Each of the components is (almost) fully tested. 
+While this is only my second project using `redux`, I'm starting to get a better grasp of it, while still lacking experience to properly separate concerns and use the more advanced constructs such as selectors (none of which were built).
+
+The search results and bookmarks are all stored inside an object for O(1) querying when recursing to find the closest results (see search optimization).
+
+- The store consists of 4 reducers:
+    -`bookmarks`: handles the bookmarks in an object
+    -`pagination`: handles the pagination (though not yet implemented in the app)
+    -`search`: handles the search box and its value
+    -`searchResults`: stores each previous search result as a combination of the search value and pagination
 
 ## Search optimization
 
@@ -69,9 +80,10 @@ Most of the app is fairly straight-forward, so where most of the optimization ha
 
 The app can be improved in several ways, following is a list of possible additions:
 
-- App should be tested on Internet Explorer/Edge
-- Pagination was not implemented, however majority of the logic is ready
+- App should be tested on Internet Explorer/Edge.
+- Pagination was not implemented, however majority of the logic is ready.
 - A React v16 ErrorBoundary component could be added to display errors properly. However when using react-scripts, it is overridden by a custom error so it didn't feel necessary.
+- No integration or acceptance tests were written, but should be added as an additional layer of reliability.
 
 ## Testing
 
