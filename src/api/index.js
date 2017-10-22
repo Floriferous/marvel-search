@@ -1,7 +1,7 @@
 import keys from '../config/API_KEY';
 import constants from '../config/constants';
 
-const endpoint = 'https://gateway.marvel.com/v1/public/characters';
+export const endpoint = 'https://gateway.marvel.com/v1/public/characters';
 
 /**
  * getQuery - Given an object of query parameters, returns a string with
@@ -12,9 +12,11 @@ const endpoint = 'https://gateway.marvel.com/v1/public/characters';
  * @return {String}
  */
 export const createQuery = params =>
-  `?${Object.keys(params)
-    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-    .join('&')}`;
+  (params
+    ? `?${Object.keys(params)
+      .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+      .join('&')}`
+    : '');
 
 export const createUrl = (search, pagination) =>
   endpoint +
@@ -38,7 +40,6 @@ export const fetchCharacters = (search, pagination) =>
       if (response.status === 200) {
         return response.json();
       }
-      console.log(response);
       throw new Error(`${response.status}: ${response.statusText}`);
     })
     .then(json => json.data && json.data.results);
