@@ -100,6 +100,7 @@ The app can be improved in several ways, following is a list of possible additio
 - Pagination was not implemented, however majority of the logic is ready.
 - A React v16 ErrorBoundary component could be added to display errors properly. However when using react-scripts, it is overridden by a custom error so it didn't feel necessary.
 - No integration or acceptance tests were written, but should be added as an additional layer of reliability.
+- The entire store could be persisted to localStorage for fast reusability on subsequent visits. Each query weighs about 2kB in the store, so with a 5MB limit on localStorage, one could save more than 2000 queries without worrying about exceeding the limit.
 
 
 ## Testing
