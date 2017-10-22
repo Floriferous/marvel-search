@@ -20,8 +20,20 @@ main {
 }
 
 h1 {
-  font-size: 3em;
-  color: #444;
+  font-size: 4em;
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0.5em 0;
+  color: white;
+  background: #f0141e;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+  }
 }
 
 input {
@@ -34,10 +46,11 @@ input {
   outline-style: none;
   border: none;
   font-family: inherit;
+  text-align: center;
 }
 
 .character-list {
-  width: 100%;
+  width: calc(100% - 32px);
   padding: 16px;
   display: flex;
   flex-direction: column;
