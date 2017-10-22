@@ -5,14 +5,14 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 export const testComponent = (Component, props) => {
-  if (!testComponent.mountedLockScreen) {
-    testComponent.mountedLockScreen = Enzyme.shallow(<Component {...props} />);
+  if (!testComponent.shallowComponent) {
+    testComponent.shallowComponent = Enzyme.shallow(<Component {...props} />);
   }
-  return testComponent.mountedLockScreen;
+  return testComponent.shallowComponent;
 };
 
 testComponent.reset = () => {
-  testComponent.mountedLockScreen = undefined;
+  testComponent.shallowComponent = undefined;
 };
 
 export const { shallow, mount, render } = Enzyme;
