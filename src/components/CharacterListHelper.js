@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const CharacterListHelper = ({ isSearching }) => (
-  <p className="helper">
+  <h3 className="helper">
     {isSearching
       ? 'Click on the characters to add them to your bookmarks'
       : 'Your bookmarks'}
-  </p>
+  </h3>
 );
 
-CharacterListHelper.propTypes = {};
+CharacterListHelper.propTypes = {
+  isSearching: PropTypes.bool.isRequired,
+};
 
 export default CharacterListHelper;
