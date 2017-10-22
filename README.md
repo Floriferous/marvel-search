@@ -100,4 +100,4 @@ The last code coverage report is as following (and can be obtained by running `y
 
 |                             |  % Stmts | % Branch |  % Funcs |  % Lines |
 |-----------------------------|----------|----------|----------|----------|
-|All files                    |       80 |    76.58 |    77.27 |    89.12 |
+|All files                    |    93.26 |    94.44 |    98.08 |    96.09 |
