@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { testComponent } from '../../utils/testing';
 import CharacterFooter from '../CharacterFooter';
 
@@ -14,8 +11,7 @@ describe('CharacterFooter', () => {
   });
 
   it('matches its snapshot', () => {
-    const tree = renderer.create(<CharacterFooter />).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component()).toMatchSnapshot();
   });
 
   it('renders a div with class footer', () => {

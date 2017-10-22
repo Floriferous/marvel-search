@@ -1,33 +1,213 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Character matches its snapshot 1`] = `
-<li
-  className="character"
->
-  <div
-    className="content"
-    onClick={[Function]}
-  >
-    <div
-      className="image"
-      style={
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Character
+    character={
         Object {
-          "backgroundImage": "url(undefined/portrait_uncanny.undefined)",
-        }
-      }
-    />
-    <div
-      className="footer"
-    >
-      <h3>
-        superman
-      </h3>
-    </div>
-  </div>
-  <p
-    className="helper"
-  >
-    Click to bookmark
-  </p>
-</li>
+            "isBookmarked": false,
+            "name": "superman",
+            "thumbnail": Object {
+              "test": "test",
+              "test2": "test2",
+            },
+          }
+    }
+    toggleBookmark={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="content"
+          onClick={[Function]}
+>
+          <CharacterImage
+                    name="superman"
+                    test="test"
+                    test2="test2"
+          />
+          <CharacterFooter
+                    name="superman"
+          />
+</div>,
+        <CharacterBookmarkHelper
+          isBookmarked={false}
+/>,
+      ],
+      "className": "character",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <CharacterImage
+              name="superman"
+              test="test"
+              test2="test2"
+/>,
+            <CharacterFooter
+              name="superman"
+/>,
+          ],
+          "className": "content",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "name": "superman",
+              "test": "test",
+              "test2": "test2",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "function",
+            "props": Object {
+              "name": "superman",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": null,
+        "nodeType": "function",
+        "props": Object {
+          "isBookmarked": false,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "li",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="content"
+            onClick={[Function]}
+>
+            <CharacterImage
+                        name="superman"
+                        test="test"
+                        test2="test2"
+            />
+            <CharacterFooter
+                        name="superman"
+            />
+</div>,
+          <CharacterBookmarkHelper
+            isBookmarked={false}
+/>,
+        ],
+        "className": "character",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <CharacterImage
+                name="superman"
+                test="test"
+                test2="test2"
+/>,
+              <CharacterFooter
+                name="superman"
+/>,
+            ],
+            "className": "content",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "function",
+              "props": Object {
+                "name": "superman",
+                "test": "test",
+                "test2": "test2",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "function",
+              "props": Object {
+                "name": "superman",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": null,
+          "nodeType": "function",
+          "props": Object {
+            "isBookmarked": false,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "li",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;

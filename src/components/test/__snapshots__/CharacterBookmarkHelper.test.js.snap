@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CharacterFooter matches its snapshot 1`] = `
+exports[`CharacterBookmarkHelper matches its snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CharacterFooter
-    name="batman"
+  Symbol(enzyme.__unrendered__): <CharacterBookmarkHelper
+    isBookmarked={false}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,24 +19,12 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": <h3>
-        batman
-</h3>,
-      "className": "footer",
+      "children": "Click to bookmark",
+      "className": "helper",
     },
     "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "host",
-      "props": Object {
-        "children": "batman",
-      },
-      "ref": null,
-      "rendered": "batman",
-      "type": "h3",
-    },
-    "type": "div",
+    "rendered": "Click to bookmark",
+    "type": "p",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -44,24 +32,12 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": <h3>
-          batman
-</h3>,
-        "className": "footer",
+        "children": "Click to bookmark",
+        "className": "helper",
       },
       "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "host",
-        "props": Object {
-          "children": "batman",
-        },
-        "ref": null,
-        "rendered": "batman",
-        "type": "h3",
-      },
-      "type": "div",
+      "rendered": "Click to bookmark",
+      "type": "p",
     },
   ],
   Symbol(enzyme.__options__): Object {

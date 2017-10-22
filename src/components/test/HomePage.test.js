@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { testComponent } from '../../utils/testing';
 import HomePage from '../HomePage';
 
@@ -12,8 +9,7 @@ describe('HomePage', () => {
   });
 
   it('matches its snapshot', () => {
-    // const tree = renderer.create(<HomePage />).toJSON();
-    // expect(tree).toMatchSnapshot();
+    // expect(component()).toMatchSnapshot();
   });
 
   it('renders a main as its root', () => {

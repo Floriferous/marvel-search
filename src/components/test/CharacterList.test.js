@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { testComponent } from '../../utils/testing';
 import ConnectedCharacterList, { CharacterList } from '../CharacterList';
 
@@ -14,8 +11,7 @@ describe('CharacterList', () => {
   });
 
   it('matches its snapshot', () => {
-    const tree = renderer.create(<CharacterList {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component()).toMatchSnapshot();
   });
 
   it('renders Loading if user is currently searching and no characters are provided', () => {

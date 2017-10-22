@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { testComponent } from '../../utils/testing';
 import { Input } from '../Input';
 
@@ -14,8 +11,7 @@ describe('Input', () => {
   });
 
   it('matches its snapshot', () => {
-    const tree = renderer.create(<Input />).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component()).toMatchSnapshot();
   });
 
   it('renders an input', () => {

@@ -1,6 +1,3 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-
 import { testComponent } from '../../utils/testing';
 import Character from '../Character';
 
@@ -21,8 +18,7 @@ describe('Character', () => {
   });
 
   it('matches its snapshot', () => {
-    const tree = renderer.create(<Character {...props} />).toJSON();
-    expect(tree).toMatchSnapshot();
+    expect(component()).toMatchSnapshot();
   });
 
   it('renders a list item with class character', () => {

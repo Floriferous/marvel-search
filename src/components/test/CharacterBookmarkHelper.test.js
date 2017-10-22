@@ -4,9 +4,14 @@ import CharacterBookmarkHelper from '../CharacterBookmarkHelper';
 describe('CharacterBookmarkHelper', () => {
   let props;
   const component = () => testComponent(CharacterBookmarkHelper, props);
+
   beforeEach(() => {
     props = { isBookmarked: false };
     testComponent.reset();
+  });
+
+  it('matches its snapshot', () => {
+    expect(component()).toMatchSnapshot();
   });
 
   it('renders a p with class helper', () => {
