@@ -18,6 +18,7 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 
 - Each search result is being cached in the `searchResults` reducer. When an additional character is typed, it returns the most recent result from the API, to avoid showing results, followed by a loading screen, then followed by results again.
 - When searching, previous results are checked to make search a new query is useful. If a previous result returned an empty array, a new query is not being made.
+- Since all queries to the MARVEL API are made with `startingWith` the `name` field. If a new character is typed and it still matches all previous names, a new query will not be issued. As an example, if `cap` returned `Captain America` and `Captain Africa`, typing `capt` will not trigger a new query. A new query will only be issued when searching for `captain aX`.
 
 ## Tradeoffs and limitations
 
