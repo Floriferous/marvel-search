@@ -96,6 +96,20 @@ describe('search action creators', () => {
         });
       });
 
+      it('does not dispatch ADD_SEARCH_RESULTS if search is 0', () => {
+        // this is a Marvel API bug
+        store = mockStore({
+          search: '0',
+          pagination: 0,
+          searchResults: {},
+        });
+        const newSearch = '0';
+        const expectedActions = ['CHANGE_SEARCH'];
+        return store.dispatch(search.changeSearch(newSearch)).then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
+      });
+
       it('does dispatch ADD_SEARCH_RESULTS if a previous cache is non-empty', () => {
         store = mockStore({
           search: 'as',

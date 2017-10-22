@@ -1,8 +1,12 @@
 import * as api from '../api';
 import getClosestSearchResults from '../utils/getClosestSearchResults';
 
-export const shouldSearchAgain = (newSearch, closestResults) => {
-  if (closestResults) {
+export const shouldSearch = (newSearch, searchResults, closestResults) => {
+  if (
+    searchResults &&
+    Object.keys(searchResults).length > 0 &&
+    closestResults
+  ) {
     if (closestResults.length === 0) {
       return false;
     }
@@ -12,6 +16,8 @@ export const shouldSearchAgain = (newSearch, closestResults) => {
     if (allNamesStillMatch) {
       return false;
     }
+  } else if (newSearch === '0' || newSearch === 0) {
+    return false;
   }
 
   return true;
@@ -34,12 +40,7 @@ export const fetchCharacters = (dispatch, getState) => {
     pagination,
   );
 
-  // Don't perform additional searches if the closest result is empty
-  if (
-    searchResults &&
-    Object.keys(searchResults).length > 0 &&
-    !shouldSearchAgain(search, closestResults)
-  ) {
+  if (!shouldSearch(search, searchResults, closestResults)) {
     return Promise.resolve();
   }
 
