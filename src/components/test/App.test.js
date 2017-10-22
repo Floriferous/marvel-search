@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import renderer from 'react-test-renderer';
 
-import { shallow } from '../../utils/testing';
+import { testComponent } from '../../utils/testing';
 import App from '../App';
 
 describe('App', () => {
-  let component;
+  const component = () => testComponent(App);
+
   beforeEach(() => {
-    component = () => shallow(<App />);
+    testComponent.reset();
+  });
+
+  it('matches its snapshot', () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   it('renders without crashing', () => {
