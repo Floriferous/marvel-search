@@ -50,11 +50,11 @@ ShallowWrapper {
 }
 `;
 
-exports[`CharacterImage matches its snapshot 1`] = `
+exports[`Empty matches its snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CharacterBookmarkHelper
+  Symbol(enzyme.__unrendered__): <Empty
     isBookmarked={false}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -69,12 +69,12 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "Click to bookmark",
-      "className": "helper",
+      "children": "Start searching or add bookmarks to find your heroes",
+      "className": "empty",
     },
     "ref": null,
-    "rendered": "Click to bookmark",
-    "type": "p",
+    "rendered": "Start searching or add bookmarks to find your heroes",
+    "type": "h2",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -82,12 +82,12 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "Click to bookmark",
-        "className": "helper",
+        "children": "Start searching or add bookmarks to find your heroes",
+        "className": "empty",
       },
       "ref": null,
-      "rendered": "Click to bookmark",
-      "type": "p",
+      "rendered": "Start searching or add bookmarks to find your heroes",
+      "type": "h2",
     },
   ],
   Symbol(enzyme.__options__): Object {
