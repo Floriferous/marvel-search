@@ -3,8 +3,10 @@ import * as api from '../api';
 export const createSearchKey = (search, pagination) =>
   `${search}-${pagination}`;
 
-export const fetchCharacters = (dispatch, getState) => {
-  const { search, pagination, searchResults } = getState();
+export const fetchCharacters = ({
+  dispatch, getState, search, pagination,
+}) => {
+  const { searchResults } = getState();
   const searchKey = createSearchKey(search, pagination);
 
   if (searchResults && searchResults[searchKey]) {
@@ -20,7 +22,12 @@ export const changeSearch = search => (dispatch, getState) => {
   dispatch({ type: 'CHANGE_SEARCH', search });
 
   if (search) {
-    return fetchCharacters(dispatch, getState);
+    return fetchCharacters({
+      dispatch,
+      getState,
+      search,
+      pagination: getState().pagination,
+    });
   }
   dispatch({ type: 'RESET_PAGINATION' });
 
@@ -34,5 +41,10 @@ export const changePagination = pagination => (dispatch, getState) => {
     throw new Error('pagination should be a number');
   }
 
-  return fetchCharacters(dispatch, getState);
+  return fetchCharacters({
+    dispatch,
+    getState,
+    pagination,
+    search: getState().search,
+  });
 };
