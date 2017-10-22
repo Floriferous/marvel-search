@@ -6,10 +6,10 @@ import Character from './Character';
 import Empty from './Empty';
 import Loading from './Loading';
 
-const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
+export const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
   if (isSearching && !characters) {
     return <Loading />;
-  } else if (characters.length === 0) {
+  } else if (!characters || characters.length === 0) {
     return <Empty isSearching={isSearching} />;
   }
 
