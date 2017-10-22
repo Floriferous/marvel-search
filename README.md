@@ -91,6 +91,6 @@ The app can be improved in several ways, following is a list of possible additio
 
 The last code coverage report is as following (and can be obtained by running `yarn test -- --coverage`):
 
-                             |  % Stmts | % Branch |  % Funcs |  % Lines |
------------------------------|----------|----------|----------|----------|
-All files                    |    79.65 |    73.83 |    77.27 |    88.66 |
+|                             |  % Stmts | % Branch |  % Funcs |  % Lines |
+|-----------------------------|----------|----------|----------|----------|
+|All files                    |    79.65 |    73.83 |    77.27 |    88.66 |
