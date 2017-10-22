@@ -35,9 +35,9 @@ export const fetchCharacters = (search, pagination) =>
     },
   })
     .then((response) => {
-      if (response.ok) {
+      if (response.status === 200) {
         return response.json();
       }
       throw new Error(response.status);
     })
-    .then(json => json.data.results);
+    .then(json => json.data && json.data.results);
