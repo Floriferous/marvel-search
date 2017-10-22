@@ -10,8 +10,8 @@ ShallowWrapper {
             "isBookmarked": false,
             "name": "superman",
             "thumbnail": Object {
-              "test": "test",
-              "test2": "test2",
+              "extension": "test2",
+              "path": "test",
             },
           }
     }
@@ -35,9 +35,9 @@ ShallowWrapper {
           onClick={[Function]}
 >
           <CharacterImage
+                    extension="test2"
                     name="superman"
-                    test="test"
-                    test2="test2"
+                    path="test"
           />
           <CharacterFooter
                     name="superman"
@@ -58,9 +58,9 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <CharacterImage
+              extension="test2"
               name="superman"
-              test="test"
-              test2="test2"
+              path="test"
 />,
             <CharacterFooter
               name="superman"
@@ -76,9 +76,9 @@ ShallowWrapper {
             "key": null,
             "nodeType": "function",
             "props": Object {
+              "extension": "test2",
               "name": "superman",
-              "test": "test",
-              "test2": "test2",
+              "path": "test",
             },
             "ref": null,
             "rendered": null,
@@ -124,9 +124,9 @@ ShallowWrapper {
             onClick={[Function]}
 >
             <CharacterImage
+                        extension="test2"
                         name="superman"
-                        test="test"
-                        test2="test2"
+                        path="test"
             />
             <CharacterFooter
                         name="superman"
@@ -147,9 +147,9 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <CharacterImage
+                extension="test2"
                 name="superman"
-                test="test"
-                test2="test2"
+                path="test"
 />,
               <CharacterFooter
                 name="superman"
@@ -165,9 +165,9 @@ ShallowWrapper {
               "key": null,
               "nodeType": "function",
               "props": Object {
+                "extension": "test2",
                 "name": "superman",
-                "test": "test",
-                "test2": "test2",
+                "path": "test",
               },
               "ref": null,
               "rendered": null,

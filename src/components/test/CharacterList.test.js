@@ -6,7 +6,7 @@ describe('CharacterList', () => {
   const component = () => testComponent(CharacterList, props);
 
   beforeEach(() => {
-    props = {};
+    props = { isSearching: false, toggleBookmark: jest.fn() };
     testComponent.reset();
   });
 
@@ -15,13 +15,13 @@ describe('CharacterList', () => {
   });
 
   it('renders Loading if user is currently searching and no characters are provided', () => {
-    props = { isSearching: true };
+    props.isSearching = true;
     expect(component().find('Loading').length).toBe(1);
   });
 
   describe('when characters is an empty array', () => {
     beforeEach(() => {
-      props = { characters: [] };
+      props.characters = [];
     });
 
     it('renders Empty if user is currently searching', () => {
@@ -30,7 +30,7 @@ describe('CharacterList', () => {
     });
 
     it('it passes isSearching to Empty', () => {
-      props.isSearching = 'test';
+      props.isSearching = false;
       expect(component()
         .find('Empty')
         .props().isSearching).toBe(props.isSearching);
@@ -38,13 +38,16 @@ describe('CharacterList', () => {
   });
 
   it('renders Empty if no characters are provided', () => {
-    props = { characters: null };
+    props.characters = null;
     expect(component().find('Empty').length).toBe(1);
   });
 
   describe('when characters is a non empty array', () => {
     beforeEach(() => {
-      props = { characters: [{ id: 'test1' }, { id: 'test2' }] };
+      props.characters = [
+        { id: 'test1', name: 'superman' },
+        { id: 'test2', name: 'superman' },
+      ];
     });
 
     it('renders a list with character-list class', () => {
@@ -61,7 +64,6 @@ describe('CharacterList', () => {
     describe('each Character', () => {
       let characters;
       beforeEach(() => {
-        props.toggleBookmark = 'testFunc';
         characters = component().find('Character');
       });
 

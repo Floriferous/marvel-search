@@ -6,6 +6,8 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
     characters={undefined}
+    isSearching={false}
+    toggleBookmark={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -19,7 +21,7 @@ ShallowWrapper {
     "key": null,
     "nodeType": "function",
     "props": Object {
-      "isSearching": undefined,
+      "isSearching": false,
     },
     "ref": null,
     "rendered": null,
@@ -31,7 +33,7 @@ ShallowWrapper {
       "key": null,
       "nodeType": "function",
       "props": Object {
-        "isSearching": undefined,
+        "isSearching": false,
       },
       "ref": null,
       "rendered": null,

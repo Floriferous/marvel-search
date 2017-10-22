@@ -5,8 +5,8 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
-    onChange={[Function]}
-    value=""
+    changeSearch={[Function]}
+    search=""
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -23,8 +23,7 @@ ShallowWrapper {
       "autoFocus": true,
       "onChange": [Function],
       "placeholder": "Spider-man",
-      "type": "text",
-      "value": undefined,
+      "value": "",
     },
     "ref": null,
     "rendered": null,
@@ -39,8 +38,7 @@ ShallowWrapper {
         "autoFocus": true,
         "onChange": [Function],
         "placeholder": "Spider-man",
-        "type": "text",
-        "value": undefined,
+        "value": "",
       },
       "ref": null,
       "rendered": null,

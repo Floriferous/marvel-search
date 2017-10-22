@@ -10,7 +10,7 @@ describe('Character', () => {
       character: {
         isBookmarked: false,
         name: 'superman',
-        thumbnail: { test: 'test', test2: 'test2' },
+        thumbnail: { path: 'test', extension: 'test2' },
       },
       toggleBookmark: jest.fn(),
     };
