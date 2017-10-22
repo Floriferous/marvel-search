@@ -27,14 +27,15 @@ Most of the app is fairly straight-forward, so where most of the optimization ha
 ## Tradeoffs and limitations
 
 - The name lookup search optimization is only performed on the 12 initial results, any subsequent ones, which would be visited through pagination will therefore not necessarily match the exact search results (since the exact search is a subset of all previous searches, this shouldn't ever filter out possible characters).
- - This can be solved by fetching exact results upon visiting anything but the first page of results, which should be exact (if it turns out there are exactly 12 results, this might trigger a weird UX flicker that automatically goes back to page 0)
+  - This can be solved by fetching exact results upon visiting anything but the first page of results, which should be exact (if it turns out there are exactly 12 results, this might trigger a weird UX flicker that automatically goes back to page 0)
 - Almost all of the CSS relies on flexbox, which will break the layout on IE < 10. I consider this acceptable for MARVEL tech-savvy nerds :)
 
 ## Future work
 
 The app can be improved in several ways, following is a list of possible additions:
 
-- App should be tested on Internet Explorer/Edge.
+- App should be tested on Internet Explorer/Edge
+- Pagination was not implemented, however majority of the logic is ready
 
 ## Testing
 
