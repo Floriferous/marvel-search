@@ -18,7 +18,7 @@ import * as actions from '../actions/bookmarks';
  *
  * @return {Object}
  */
-const getClosestSearchResults = (searchResults, search, pagination) => {
+export const getClosestSearchResults = (searchResults, search, pagination) => {
   let broaderResults;
   let isExactSearch;
 
@@ -43,8 +43,11 @@ const getClosestSearchResults = (searchResults, search, pagination) => {
   return { characters: broaderResults, isLoading: !isExactSearch };
 };
 
-const mapStateToProps = ({
-  search, pagination, searchResults, bookmarks,
+export const mapStateToProps = ({
+  search,
+  pagination,
+  searchResults,
+  bookmarks,
 }) => {
   let characters;
   let isLoading = false;
