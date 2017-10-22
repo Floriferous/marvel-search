@@ -28,7 +28,6 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 
 The app can be improved in several ways, following is a list of possible additions:
 
--
 
 ## Testing
 

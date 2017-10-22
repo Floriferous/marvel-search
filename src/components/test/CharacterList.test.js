@@ -50,15 +50,39 @@ describe('CharacterList', () => {
       ];
     });
 
-    it('renders a list with character-list class', () => {
-      expect(component().find('ul').length).toBe(1);
+    it('renders a div with character-list class', () => {
+      expect(component().find('div').length).toBe(1);
       expect(component()
-        .find('ul')
+        .find('div')
         .hasClass('character-list')).toBe(true);
+    });
+
+    describe('the div', () => {
+      let div;
+
+      beforeEach(() => {
+        div = component()
+          .find('div')
+          .shallow();
+      });
+
+      it('renders a ul', () => {
+        expect(div.find('ul').length).toBe(1);
+      });
+
+      it('renders a CharacterListHelper', () => {
+        expect(div.find('CharacterListHelper').length).toBe(1);
+      });
     });
 
     it('renders one Character per character', () => {
       expect(component().find('Character').length).toBe(props.characters.length);
+    });
+
+    it('passes isSearching to CharacterListHelper', () => {
+      expect(component()
+        .find('CharacterListHelper')
+        .props().isSearching).toBe(props.isSearching);
     });
 
     describe('each Character', () => {

@@ -5,6 +5,7 @@ import CharacterListContainer from './CharacterListContainer';
 import Character from './Character';
 import Empty from './Empty';
 import Loading from './Loading';
+import CharacterListHelper from './CharacterListHelper';
 
 export const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
   if (isSearching && !characters) {
@@ -14,15 +15,18 @@ export const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
   }
 
   return (
-    <ul className="character-list">
-      {characters.map(character => (
-        <Character
-          key={character.id}
-          character={character}
-          toggleBookmark={toggleBookmark}
-        />
-      ))}
-    </ul>
+    <div className="character-list">
+      <CharacterListHelper isSearching={isSearching} />
+      <ul>
+        {characters.map(character => (
+          <Character
+            key={character.id}
+            character={character}
+            toggleBookmark={toggleBookmark}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };
 
