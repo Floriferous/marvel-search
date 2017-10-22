@@ -69,6 +69,32 @@ describe('search action creators', () => {
         const newSearch = 'a';
         expect(typeof store.dispatch(search.changeSearch(newSearch)).then).toBe('function');
       });
+
+      it('does not dispatch ADD_SEARCH_RESULTS if a previous cache is empty', () => {
+        store = mockStore({
+          search: 'asd',
+          pagination: 0,
+          searchResults: { 'a-0': [] },
+        });
+        const newSearch = 'asd';
+        const expectedActions = ['CHANGE_SEARCH'];
+        return store.dispatch(search.changeSearch(newSearch)).then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
+      });
+
+      it('does dispatch ADD_SEARCH_RESULTS if a previous cache is non-empty', () => {
+        store = mockStore({
+          search: 'as',
+          pagination: 0,
+          searchResults: { 'a-0': [{}] },
+        });
+        const newSearch = 'as';
+        const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
+        return store.dispatch(search.changeSearch(newSearch)).then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
+      });
     });
   });
 

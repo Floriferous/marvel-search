@@ -1,4 +1,5 @@
 import * as api from '../api';
+import getClosestSearchResults from '../utils/getClosestSearchResults';
 
 export const createSearchKey = (search, pagination) =>
   `${search}-${pagination}`;
@@ -7,7 +8,23 @@ export const fetchCharacters = (dispatch, getState) => {
   const { search, pagination, searchResults } = getState();
   const searchKey = createSearchKey(search, pagination);
 
+  // exact results exist
   if (searchResults && searchResults[searchKey]) {
+    return Promise.resolve();
+  }
+  const { characters: closestResults } = getClosestSearchResults(
+    searchResults,
+    search,
+    pagination,
+  );
+
+  // Don't perform additional searches if the closest result is empty
+  if (
+    searchResults &&
+    Object.keys(searchResults).length > 0 &&
+    closestResults &&
+    closestResults.length === 0
+  ) {
     return Promise.resolve();
   }
 
