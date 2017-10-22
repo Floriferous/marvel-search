@@ -7,13 +7,13 @@ describe('search reducer', () => {
 
   it('handles CHANGE_SEARCH', () => {
     const action = { type: 'CHANGE_SEARCH', search: 'test' };
-    expect(search(initialState, action)).toEqual('test');
-    expect(search('anything', action)).toEqual('test');
+    expect(search(initialState, action)).toEqual(action.search);
+    expect(search('anything', action)).toEqual(action.search);
   });
 
   it('handles RESET_SEARCH', () => {
     const action = { type: 'RESET_SEARCH' };
-    expect(search(initialState, action)).toEqual('');
-    expect(search('anything', action)).toEqual('');
+    expect(search(initialState, action)).toEqual(initialState);
+    expect(search('anything', action)).toEqual(initialState);
   });
 });
