@@ -5,7 +5,8 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 ## Table of Contents
 
 - [Installation](#markdown-header-installation)
-- [Code structure](#markdown-code-structure)
+- [Code structure](#markdown-header-code-structure)
+- [React component design](#markdown-header-react-component-design)
 - [Search optimization](#markdown-header-search-optimization)
 - [Tradeoffs and limitations](#markdown-header-tradeoffs-and-limitations)
 - [Future work](#markdown-header-future-work)
@@ -18,7 +19,7 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 
 ## Code structure
 
-The code is structured as follows, withing the `src` folder:
+The code is structured as follows in the `src` folder:
 
 - `actions/`
     - contains all action creators
@@ -36,9 +37,18 @@ The code is structured as follows, withing the `src` folder:
 - `store/`
     - contains the redux store creator
 - `utils/`
-    - contains all other js used in the app, such as during testing, or other
+    - contains all other JS used in the app, such as during testing, or other
     useful functions
 
+Each folder with JS also contains its own `test` folder, where all the tests are located.
+
+## React component design
+
+All of the React components are stateless components, with the exception of CharacterListContainer and InputContainer which are the only HOCs connecting to the redux store.
+
+The components adhere as much as possible to the 'single-responsibility' philosophy, where each component handles (ideally) only a single task.
+
+Each of the components is (almost) fully tested. 
 
 ## Search optimization
 
@@ -61,7 +71,14 @@ The app can be improved in several ways, following is a list of possible additio
 
 - App should be tested on Internet Explorer/Edge
 - Pagination was not implemented, however majority of the logic is ready
+- A React v16 ErrorBoundary component could be added to display errors properly. However when using react-scripts, it is overridden by a custom error so it didn't feel necessary.
 
 ## Testing
 
 - Run tests in watch mode using `yarn test`
+
+The last code coverage report is as following (and can be obtained by running `yarn test -- --coverage`):
+
+                             |  % Stmts | % Branch |  % Funcs |  % Lines |
+-----------------------------|----------|----------|----------|----------|
+All files                    |    79.65 |    73.83 |    77.27 |    88.66 |

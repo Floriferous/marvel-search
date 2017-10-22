@@ -15,20 +15,20 @@ describe('CharacterListHelper', () => {
   });
 
   it('renders a p with class helper', () => {
-    expect(component().find('p').length).toBe(1);
+    expect(component().find('h3').length).toBe(1);
     expect(component()
-      .find('p')
+      .find('h3')
       .hasClass('helper')).toBe(true);
   });
 
   it('renders different test based on isSearching prop', () => {
     const text1 = component()
-      .find('p')
+      .find('h3')
       .text();
     testComponent.reset();
     props.isSearching = true;
     const text2 = component()
-      .find('p')
+      .find('h3')
       .text();
 
     expect(text1.length).toBeGreaterThan(0);
