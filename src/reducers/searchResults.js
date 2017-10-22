@@ -1,4 +1,4 @@
-const initialState = {};
+export const initialState = {};
 
 const searchResults = (state = initialState, action) => {
   switch (action.type) {
