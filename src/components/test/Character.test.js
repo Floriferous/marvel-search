@@ -28,6 +28,20 @@ describe('Character', () => {
       .hasClass('character')).toBe(true);
   });
 
+  it('renders a div with class content, and not bookmarked', () => {
+    expect(component().find('div').length).toBe(1);
+    expect(component()
+      .find('div')
+      .props().className).toBe('content');
+  });
+
+  it('renders a div with class bookmarked when isBookmarked is true', () => {
+    props.character.isBookmarked = true;
+    expect(component()
+      .find('div')
+      .hasClass('bookmarked')).toBe(true);
+  });
+
   describe('the list item', () => {
     let listItem;
     beforeEach(() => {
@@ -37,13 +51,8 @@ describe('Character', () => {
         .shallow();
     });
 
-    it('renders a div with class content, and not bookmarked', () => {
-      expect(listItem.find('div').length).toBe(1);
-      expect(listItem.find('div').hasClass('content')).toBe(true);
-      expect(listItem.find('div').hasClass('bookmarked')).toBe(false);
-    });
-
     it('renders a CharacterBookmarkHelper with prop isBookmarked', () => {
+      expect(listItem.find('CharacterBookmarkHelper').length).toBe(1);
       expect(listItem.find('CharacterBookmarkHelper').length).toBe(1);
     });
 
