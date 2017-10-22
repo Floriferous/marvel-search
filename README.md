@@ -54,15 +54,15 @@ Each folder with JS also contains its own `test` folder, where all the tests are
 
 ## Redux design
 
-While this is only my second project using `redux`, I'm starting to get a better grasp of it, while still lacking experience to properly separate concerns and use the more advanced constructs such as selectors (none were used).
+While this is only my second project using `redux`, I'm starting to get a better grasp of it, but still lack experience to properly separate concerns and use the more advanced constructs such as selectors (none were used).
 
 The search results and bookmarks are all stored inside an object for O(1) querying when recursing to find the closest results (see search optimization).
 
 - The store consists of 4 reducers:
-    -`bookmarks`: handles the bookmarks in an object
-    -`pagination`: handles the pagination (though not yet implemented in the app)
-    -`search`: handles the search box and its value
-    -`searchResults`: stores each previous search result as a combination of the search value and pagination
+    - `bookmarks`: handles the bookmarks in an object
+    - `pagination`: handles the pagination (though not yet implemented in the app)
+    - `search`: handles the search box and its value
+    - `searchResults`: stores each previous search result as a combination of the search value and pagination
 
 
 ## Search optimization
