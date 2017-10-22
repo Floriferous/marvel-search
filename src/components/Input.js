@@ -5,7 +5,6 @@ import InputContainer from './InputContainer';
 
 export const Input = ({ search, changeSearch }) => (
   <input
-    type="text"
     value={search}
     onChange={event => changeSearch(event.target.value)}
     autoFocus
