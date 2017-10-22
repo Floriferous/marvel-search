@@ -14,10 +14,10 @@ Search your favorite MARVEL characters, bookmark and save the ones you like.
 - Clone the repo
 - Start the app using `yarn start`
 
-## Search strategy
+## Search optimization
 
-- Each search result is being cached in the `searchResults` reducer. When an additional character is typed, it returns the most recent result from the API, to avoid showing results, followed by a loading screen, then followed by results.
-- When a previous search returns nothing, each subsequent character will not trigger a new unnecessary search (this assumes MARVEL's API behaves accordingly).
+- Each search result is being cached in the `searchResults` reducer. When an additional character is typed, it returns the most recent result from the API, to avoid showing results, followed by a loading screen, then followed by results again.
+- When searching, previous results are checked to make search a new query is useful. If a previous result returned an empty array, a new query is not being made.
 
 ## Tradeoffs and limitations
 

@@ -1,6 +1,20 @@
 import * as api from '../api';
 import getClosestSearchResults from '../utils/getClosestSearchResults';
 
+export const shouldSearchAgain = (newSearch, closestResults) => {
+  if (closestResults && closestResults.length === 0) {
+    return false;
+  }
+
+  const names = closestResults.map(character => character.name);
+  const allNamesStillMatch = names.every(name => name.indexOf(newSearch) === 0);
+  if (allNamesStillMatch) {
+    return false;
+  }
+
+  return true;
+};
+
 export const createSearchKey = (search, pagination) =>
   `${search}-${pagination}`;
 
@@ -22,8 +36,7 @@ export const fetchCharacters = (dispatch, getState) => {
   if (
     searchResults &&
     Object.keys(searchResults).length > 0 &&
-    closestResults &&
-    closestResults.length === 0
+    !shouldSearchAgain(search, closestResults)
   ) {
     return Promise.resolve();
   }

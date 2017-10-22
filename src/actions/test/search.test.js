@@ -83,11 +83,24 @@ describe('search action creators', () => {
         });
       });
 
+      it('does not dispatch ADD_SEARCH_RESULTS if the previous cache will return the same results', () => {
+        store = mockStore({
+          search: 'asd',
+          pagination: 0,
+          searchResults: { 'as-0': [{ name: 'asda' }, { name: 'asdu' }] },
+        });
+        const newSearch = 'asd';
+        const expectedActions = ['CHANGE_SEARCH'];
+        return store.dispatch(search.changeSearch(newSearch)).then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
+      });
+
       it('does dispatch ADD_SEARCH_RESULTS if a previous cache is non-empty', () => {
         store = mockStore({
           search: 'as',
           pagination: 0,
-          searchResults: { 'a-0': [{}] },
+          searchResults: { 'a-0': [{ name: 'abdul' }] },
         });
         const newSearch = 'as';
         const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
