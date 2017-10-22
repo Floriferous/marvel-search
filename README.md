@@ -80,7 +80,7 @@ The search results and bookmarks are all stored inside an object for O(1) queryi
 Most of the app is fairly straight-forward, so where most of the optimization happens is in search. It's optimized both for UX with caching, and to limit network requests to preserve data.
 
 - Each search result is cached in the `searchResults` reducer. When an additional character is typed - and before the exact results come back from the server - it returns the most recent superset result from the API, to avoid showing results, followed by a loading screen, then followed by results again.
-- When searching, previous results are checked to make search a new query is truly necessary. If a previous result returned an empty array, a new query is not being made.
+- When searching, previous results are checked to make sure a new query is truly necessary. If a previous result returned an empty array, a new query is not being made.
 - Since all queries to the MARVEL API are made with `startingWith` the `name` field. If a new character is typed and it still matches all previous names, a new query will not be issued.
     - As an example, if `cap` returned `Captain America` and `Captain Africa`, typing `capt` will not trigger a new query. A new query will only be issued when searching for `captain aX`.
 
