@@ -1,61 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CharacterBookmarkHelper matches its snapshot 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CharacterBookmarkHelper
-    isBookmarked={false}
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "host",
-    "props": Object {
-      "children": "Click to bookmark",
-      "className": "helper",
-    },
-    "ref": null,
-    "rendered": "Click to bookmark",
-    "type": "p",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "host",
-      "props": Object {
-        "children": "Click to bookmark",
-        "className": "helper",
-      },
-      "ref": null,
-      "rendered": "Click to bookmark",
-      "type": "p",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-  },
-}
-`;
-
 exports[`CharacterImage matches its snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CharacterBookmarkHelper
-    isBookmarked={false}
+  Symbol(enzyme.__unrendered__): <CharacterImage
+    extension="jpg"
+    path="myPath"
 />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -69,12 +20,14 @@ ShallowWrapper {
     "key": null,
     "nodeType": "host",
     "props": Object {
-      "children": "Click to bookmark",
-      "className": "helper",
+      "className": "image",
+      "style": Object {
+        "backgroundImage": "url(myPath/portrait_uncanny.jpg)",
+      },
     },
     "ref": null,
-    "rendered": "Click to bookmark",
-    "type": "p",
+    "rendered": null,
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -82,12 +35,14 @@ ShallowWrapper {
       "key": null,
       "nodeType": "host",
       "props": Object {
-        "children": "Click to bookmark",
-        "className": "helper",
+        "className": "image",
+        "style": Object {
+          "backgroundImage": "url(myPath/portrait_uncanny.jpg)",
+        },
       },
       "ref": null,
-      "rendered": "Click to bookmark",
-      "type": "p",
+      "rendered": null,
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
