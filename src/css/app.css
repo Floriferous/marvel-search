@@ -81,6 +81,8 @@ input {
   justify-content: center;
   padding: 32px;
   box-sizing: border-box;
+  animation-name: appearUp;
+  animation-duration: 600ms;
 }
 
 .character .content {
@@ -123,6 +125,8 @@ input {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  animation-name: appear;
+  animation-duration: 300ms;
 }
 
 .character .content .footer {
@@ -164,4 +168,26 @@ input {
   flex-grow: 1;
   display: flex;
   align-items: flex-end;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appearUp {
+  from {
+    opacity: 0.5;
+    transform: translate3d(0, 10%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
