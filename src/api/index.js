@@ -28,6 +28,8 @@ export const createUrl = (search, pagination) =>
     offset: pagination * constants.CHARACTERS_PER_PAGE || 0,
   });
 
+const fs = require('fs');
+
 export const fetchCharacters = (search, pagination) =>
   fetch(createUrl(search, pagination), {
     method: 'GET',
@@ -42,4 +44,5 @@ export const fetchCharacters = (search, pagination) =>
       }
       throw new Error(`${response.status}: ${response.statusText}`);
     })
-    .then(json => json.data && json.data.results);
+    .then(json => json.data && json.data.results)
+    .then(result => result.map(({ name, id, thumbnail }) => ({ name, id, thumbnail })));
