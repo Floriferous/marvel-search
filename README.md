@@ -51,7 +51,7 @@ Each folder with JS also contains its own `test` folder, where all the tests are
 
 ## Redux design
 
-While this is only my second project using `redux`, I'm starting to get a better grasp of it, while still lacking experience to properly separate concerns and use the more advanced constructs such as selectors (none of which were built).
+While this is only my second project using `redux`, I'm starting to get a better grasp of it, while still lacking experience to properly separate concerns and use the more advanced constructs such as selectors (none were used).
 
 The search results and bookmarks are all stored inside an object for O(1) querying when recursing to find the closest results (see search optimization).
 
