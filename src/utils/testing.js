@@ -6,13 +6,13 @@ import configureStore from '../store';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-export const testComponent = (Component, props, withStore) => {
+export const testComponent = (Component, props, withInitialStore) => {
   if (!testComponent.shallowComponent) {
-    if (withStore) {
-      const store = configureStore();
+    if (withInitialStore) {
+      const store = configureStore(withInitialStore);
       testComponent.shallowComponent = Enzyme.shallow(
         <Component {...props} />,
-        { context: store },
+        { context: { store } },
       );
     } else {
       testComponent.shallowComponent = Enzyme.shallow(<Component {...props} />);

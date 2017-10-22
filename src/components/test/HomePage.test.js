@@ -2,7 +2,7 @@ import { testComponent } from '../../utils/testing';
 import HomePage from '../HomePage';
 
 describe('HomePage', () => {
-  const component = () => testComponent(HomePage, {}, true);
+  const component = () => testComponent(HomePage, {}, {});
 
   beforeEach(() => {
     testComponent.reset();

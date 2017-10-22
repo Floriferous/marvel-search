@@ -5,12 +5,12 @@ import thunk from 'redux-thunk';
 import { getValueAtKey } from '../utils/localStorage';
 import rootReducer from '../reducers';
 
-const configureStore = () => {
+const configureStore = (testInitialStore) => {
   const bookmarks = getValueAtKey('bookmarks') || {};
 
   return createStore(
     rootReducer,
-    { bookmarks },
+    testInitialStore || { bookmarks },
     applyMiddleware(thunk, createLogger()),
   );
 };
