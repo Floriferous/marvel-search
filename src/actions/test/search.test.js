@@ -27,16 +27,9 @@ describe('search action creators', () => {
   describe('changeSearch', () => {
     it('dispatches changeSearch and adds returned results to the proper search key', () => {
       const newSearch = 'a';
-      const expectedActions = [
-        { search: newSearch, type: 'CHANGE_SEARCH' },
-        {
-          characters,
-          searchKey: `${newSearch}-0`,
-          type: 'ADD_SEARCH_RESULTS',
-        },
-      ];
+      const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
       return store.dispatch(search.changeSearch(newSearch)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
       });
     });
 
@@ -44,12 +37,9 @@ describe('search action creators', () => {
       const newSearch = '';
 
       it('resets pagination if search is an empty string', () => {
-        const expectedActions = [
-          { search: '', type: 'CHANGE_SEARCH' },
-          { type: 'RESET_PAGINATION' },
-        ];
+        const expectedActions = ['CHANGE_SEARCH', 'RESET_PAGINATION'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
-          expect(store.getActions()).toEqual(expectedActions);
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
       });
 
@@ -61,17 +51,17 @@ describe('search action creators', () => {
     describe('when a search cache exists', () => {
       beforeEach(() => {
         store = mockStore({
-          search: '',
+          search: 'a',
           pagination: 0,
           searchResults: { 'a-0': [] },
         });
       });
 
       it('does not dispatch ADD_SEARCH_RESULTS', () => {
-        const newSearch = 'a';
-        const expectedActions = [{ search: 'a', type: 'CHANGE_SEARCH' }];
+        const newSearch = 'test';
+        const expectedActions = ['CHANGE_SEARCH'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
-          expect(store.getActions()).toEqual(expectedActions);
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
       });
 
@@ -85,16 +75,9 @@ describe('search action creators', () => {
   describe('changePagination', () => {
     it('dispatches changePagination and adds returned results', () => {
       const newPagination = 1;
-      const expectedActions = [
-        { pagination: newPagination, type: 'CHANGE_PAGINATION' },
-        {
-          characters,
-          searchKey: `-${newPagination}`,
-          type: 'ADD_SEARCH_RESULTS',
-        },
-      ];
+      const expectedActions = ['CHANGE_PAGINATION', 'ADD_SEARCH_RESULTS'];
       return store.dispatch(search.changePagination(newPagination)).then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
       });
     });
 
