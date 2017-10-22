@@ -1,20 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomePage matches its snapshot 1`] = `
-<main>
-  <h1>
-    Marvel Search
-  </h1>
-  <input
-    autoFocus={true}
-    onChange={undefined}
-    type="text"
-    value={undefined}
-  />
-  <div
-    className="character-list"
-  >
-    List!
-  </div>
-</main>
-`;
+exports[`HomePage matches its snapshot 1`] = `null`;
