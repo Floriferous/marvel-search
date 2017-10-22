@@ -69,6 +69,12 @@ describe('CharacterList', () => {
         characters = component().find('Character');
       });
 
+      it('is passed the character id as a key', () => {
+        characters.forEach((c, i) => {
+          expect(c.key()).toBe(props.characters[i].id);
+        });
+      });
+
       it('is passed the character as a prop', () => {
         characters.forEach((c, i) => {
           expect(c.props().character).toBe(props.characters[i]);
