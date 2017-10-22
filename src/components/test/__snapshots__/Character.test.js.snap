@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Character matches its snapshot 1`] = `
+<li
+  className="character"
+>
+  <div
+    className="content"
+    onClick={[Function]}
+  >
+    <div
+      className="image"
+      style={
+        Object {
+          "backgroundImage": "url(undefined/portrait_uncanny.undefined)",
+        }
+      }
+    />
+    <div
+      className="footer"
+    >
+      <h3>
+        superman
+      </h3>
+    </div>
+  </div>
+  <p
+    className="helper"
+  >
+    Click to bookmark
+  </p>
+</li>
+`;

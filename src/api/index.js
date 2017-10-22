@@ -38,6 +38,7 @@ export const fetchCharacters = (search, pagination) =>
       if (response.status === 200) {
         return response.json();
       }
-      throw new Error(response.status);
+      console.log(response);
+      throw new Error(`${response.status}: ${response.statusText}`);
     })
     .then(json => json.data && json.data.results);
