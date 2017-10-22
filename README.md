@@ -1,6 +1,6 @@
 # Marvel Search
 
-Search your favorite MARVEL characters, bookmark and save the ones you like.
+Search for your favorite MARVEL characters, bookmark and save the ones you like. For true MARVEL fans only.
 
 ## Table of Contents
 
@@ -52,6 +52,8 @@ In the spirit of superheroes and comic books, I wanted the app to be big, bold, 
 MARVEL's iconic brand color is used in the header and for bookmarked heroes, and should resonate with the fans.
 
 Beyond that, an aesthetically clean palette with a pleasant contrast (soft-black on white and grey) was used, combined with bold hover effects to create a simple but elegant experience.
+
+The massive search input starts off with an `autoFocus` to quickly draw the user's attention to the simple and main functionality of the app, for an incredible UX (/joke).
 
 ## React component design
 
