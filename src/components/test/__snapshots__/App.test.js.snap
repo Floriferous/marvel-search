@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App matches its snapshot 1`] = `
+<main>
+  <h1>
+    Marvel Search
+  </h1>
+  <input
+    autoFocus={true}
+    onChange={[Function]}
+    placeholder="Spider-man"
+    type="text"
+    value=""
+  />
+  <h2
+    className="empty"
+  >
+    Start searching or add bookmarks to find your heroes
+  </h2>
+  <div
+    className="disclaimer"
+  >
+    <p>
+      Data provided by Marvel. © 2014 Marvel
+    </p>
+  </div>
+</main>
+`;

@@ -1,21 +1,22 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { shallow } from '../../utils/testing';
-import Input from '../Input';
+import { testComponent } from '../../utils/testing';
+import { Input } from '../Input';
 
 describe('Input', () => {
-  let component;
+  let props;
+  const component = () => testComponent(Input, props);
 
   beforeEach(() => {
-    component = props =>
-      shallow(<Input value="" onChange={() => {}} {...props} />);
+    props = { value: '', onChange: () => {} };
+    testComponent.reset();
   });
 
-  // it('matches its snapshot', () => {
-  //   const tree = renderer.create(<Input />).toJSON();
-  //   expect(tree).toMatchSnapshot();
-  // });
+  it('matches its snapshot', () => {
+    const tree = renderer.create(<Input />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
   it('renders an input', () => {
     expect(component().find('input').length).toBe(1);

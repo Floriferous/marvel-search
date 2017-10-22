@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import InputContainer from './InputContainer';
 
-const Input = ({ search, changeSearch }) => (
+export const Input = ({ search, changeSearch }) => (
   <input
     type="text"
     value={search}

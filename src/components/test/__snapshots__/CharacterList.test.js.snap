@@ -1,26 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CharacterList matches its snapshot 1`] = `
-<div>
-  MyComponent
-</div>
-`;
-
-exports[`HomePage matches its snapshot 1`] = `
-<main>
-  <h1>
-    Marvel Search
-  </h1>
-  <input
-    autoFocus={true}
-    onChange={undefined}
-    type="text"
-    value={undefined}
-  />
-  <div
-    className="character-list"
-  >
-    List!
-  </div>
-</main>
+<h2
+  className="empty"
+>
+  Start searching or add bookmarks to find your heroes
+</h2>
 `;
