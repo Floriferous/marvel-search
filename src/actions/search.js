@@ -2,14 +2,16 @@ import * as api from '../api';
 import getClosestSearchResults from '../utils/getClosestSearchResults';
 
 export const shouldSearchAgain = (newSearch, closestResults) => {
-  if (closestResults && closestResults.length === 0) {
-    return false;
-  }
+  if (closestResults) {
+    if (closestResults.length === 0) {
+      return false;
+    }
 
-  const names = closestResults.map(character => character.name);
-  const allNamesStillMatch = names.every(name => name.indexOf(newSearch) === 0);
-  if (allNamesStillMatch) {
-    return false;
+    const names = closestResults.map(character => character.name);
+    const allNamesStillMatch = names.every(name => name.indexOf(newSearch) === 0);
+    if (allNamesStillMatch) {
+      return false;
+    }
   }
 
   return true;
