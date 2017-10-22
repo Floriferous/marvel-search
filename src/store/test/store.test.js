@@ -30,4 +30,14 @@ describe('configureStore', () => {
     const store = configureStore();
     expect(store.getState().bookmarks).toEqual({});
   });
+
+  it('initializes all reducers', () => {
+    const store = configureStore();
+    expect(Object.keys(store.getState())).toEqual([
+      'search',
+      'pagination',
+      'searchResults',
+      'bookmarks',
+    ]);
+  });
 });
