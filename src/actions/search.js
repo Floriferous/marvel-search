@@ -14,6 +14,7 @@ export const shouldSearch = (newSearch, searchResults, closestResults) => {
 
     const names = closestResults.characters.map(character => character.name);
     const allNamesStillMatch = names.every(name => name.indexOf(newSearch) === 0);
+
     if (allNamesStillMatch) {
       return false;
     }
