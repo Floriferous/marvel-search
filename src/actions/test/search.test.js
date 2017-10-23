@@ -27,7 +27,11 @@ describe('search action creators', () => {
   describe('changeSearch', () => {
     it('dispatches changeSearch and adds returned results to the proper search key', () => {
       const newSearch = 'a';
-      const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
+      const expectedActions = [
+        'CHANGE_SEARCH',
+        'RESET_PAGINATION',
+        'ADD_SEARCH_RESULTS',
+      ];
       return store.dispatch(search.changeSearch(newSearch)).then(() => {
         expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
       });
@@ -53,13 +57,13 @@ describe('search action creators', () => {
         store = mockStore({
           search: 'a',
           pagination: 0,
-          searchResults: { 'a-0': [] },
+          searchResults: { 'a-0': { characters: [] } },
         });
       });
 
       it('does not dispatch ADD_SEARCH_RESULTS', () => {
         const newSearch = 'test';
-        const expectedActions = ['CHANGE_SEARCH'];
+        const expectedActions = ['CHANGE_SEARCH', 'RESET_PAGINATION'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
@@ -74,10 +78,10 @@ describe('search action creators', () => {
         store = mockStore({
           search: 'asd',
           pagination: 0,
-          searchResults: { 'a-0': [] },
+          searchResults: { 'a-0': { characters: [] } },
         });
         const newSearch = 'asd';
-        const expectedActions = ['CHANGE_SEARCH'];
+        const expectedActions = ['CHANGE_SEARCH', 'RESET_PAGINATION'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
@@ -87,10 +91,12 @@ describe('search action creators', () => {
         store = mockStore({
           search: 'asd',
           pagination: 0,
-          searchResults: { 'as-0': [{ name: 'asda' }, { name: 'asdu' }] },
+          searchResults: {
+            'as-0': { characters: [{ name: 'asda' }, { name: 'asdu' }] },
+          },
         });
         const newSearch = 'asd';
-        const expectedActions = ['CHANGE_SEARCH'];
+        const expectedActions = ['CHANGE_SEARCH', 'RESET_PAGINATION'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
@@ -99,7 +105,7 @@ describe('search action creators', () => {
       it('does not dispatch ADD_SEARCH_RESULTS if search is 0', () => {
         store = mockStore({ search: '0', pagination: 0, searchResults: {} });
         const newSearch = '0';
-        const expectedActions = ['CHANGE_SEARCH'];
+        const expectedActions = ['CHANGE_SEARCH', 'RESET_PAGINATION'];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
@@ -109,10 +115,14 @@ describe('search action creators', () => {
         store = mockStore({
           search: 'asd',
           pagination: 1,
-          searchResults: { 'a-0': [] },
+          searchResults: { 'a-0': { characters: [] } },
         });
         const newSearch = 'asd';
-        const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
+        const expectedActions = [
+          'CHANGE_SEARCH',
+          'RESET_PAGINATION',
+          'ADD_SEARCH_RESULTS',
+        ];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
@@ -122,10 +132,14 @@ describe('search action creators', () => {
         store = mockStore({
           search: 'as',
           pagination: 0,
-          searchResults: { 'a-0': [{ name: 'abdul' }] },
+          searchResults: { 'a-0': { characters: [{ name: 'abdul' }] } },
         });
         const newSearch = 'as';
-        const expectedActions = ['CHANGE_SEARCH', 'ADD_SEARCH_RESULTS'];
+        const expectedActions = [
+          'CHANGE_SEARCH',
+          'RESET_PAGINATION',
+          'ADD_SEARCH_RESULTS',
+        ];
         return store.dispatch(search.changeSearch(newSearch)).then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
