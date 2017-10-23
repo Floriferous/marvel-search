@@ -12,6 +12,7 @@ describe('CharacterListContainer', () => {
         searchResults: {
           'test-0': { characters: [{ id: 0 }], total: 6 },
           'a-0': { characters: [{ id: 0 }] },
+          'a-1': { characters: [{ id: 0 }] },
         },
         bookmarks: { 10: { name: 'hello', id: 10 } },
       };
@@ -32,6 +33,19 @@ describe('CharacterListContainer', () => {
       store.search = 'a';
       store.searchResults['a-0'].total = constants.CHARACTERS_PER_PAGE + 1;
       expect(mapStateToProps(store).showPagination).toBe(true);
+    });
+
+    it('returns showNext to be true if it should paginate', () => {
+      store.search = 'a';
+      store.searchResults['a-0'].total = constants.CHARACTERS_PER_PAGE + 1;
+      expect(mapStateToProps(store).showNext).toBe(true);
+    });
+
+    it('returns showNext to be false if it should not paginate', () => {
+      store.search = 'a';
+      store.pagination = 1;
+      store.searchResults['a-1'].total = constants.CHARACTERS_PER_PAGE + 1;
+      expect(mapStateToProps(store).showNext).toBe(false);
     });
 
     describe('when search is an empty string', () => {
