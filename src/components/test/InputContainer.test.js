@@ -19,12 +19,9 @@ describe('InputContainer', () => {
       .props().search).toBe(initialStore.search);
   });
 
-  it('passes the search action creators to the component', () => {
+  it('passes the required search action creators to the component', () => {
     expect(component()
       .find('div')
       .props().changeSearch).toBeDefined();
-    expect(component()
-      .find('div')
-      .props().changePagination).toBeDefined();
   });
 });
