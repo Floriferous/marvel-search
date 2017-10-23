@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import PaginationContainer from './PaginationContainer';
 
-const Pagination = ({
+export const Pagination = ({
   pagination,
   decrementPagination,
   incrementPagination,
