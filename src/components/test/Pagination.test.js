@@ -7,6 +7,7 @@ describe('Pagination', () => {
 
   beforeEach(() => {
     props = {
+      showNext: true,
       pagination: 1,
       decrementPagination: jest.fn(),
       incrementPagination: jest.fn(),
@@ -46,6 +47,21 @@ describe('Pagination', () => {
     });
   });
 
+  describe('when pagination is larger than 0 and showNext is false', () => {
+    beforeEach(() => {
+      props.pagination = 1;
+      props.showNext = false;
+    });
+
+    it('renders one button with class increment', () => {
+      expect(component().find('button').length).toBe(1);
+      expect(component()
+        .find('button')
+        .first()
+        .hasClass('decrement')).toBe(true);
+    });
+  });
+
   describe('when pagination is larger than 0', () => {
     it('renders two buttons with classes increment and decrement', () => {
       expect(component().find('button').length).toBe(2);
@@ -57,6 +73,7 @@ describe('Pagination', () => {
   it('calls decrementPagination when the .decrement button is clicked', () => {
     component()
       .find('.decrement')
+      .first()
       .simulate('click');
     expect(props.decrementPagination).toHaveBeenCalled();
   });

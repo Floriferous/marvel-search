@@ -101,7 +101,7 @@ The app can be improved in several ways, following is a list of possible additio
 - No integration or acceptance tests were written, but should be added as an additional layer of reliability.
 - The entire store could be persisted to localStorage for fast reusability on subsequent visits. Each query weighs about 2kB in the store, so with a 5MB limit on localStorage, one could save more than 2000 queries without worrying about exceeding the limit.
 - One could always pre-fetch one extra pagination, so that the user does not have to wait. So on the visit of page 1, already fetch page 2. As with most search engines, I assume users to find their result on the first page the majority of the time, so it might not be that useful for most users.
-- It should be possible to perform a more optimal name comparison for subsequent searches, and instead of refetching all of the characters, search for a subset of them and merge them with the previous request.
+- It should be possible to perform a more optimal name comparison for subsequent searches, and instead of refetching all of the characters, search for a subset of them and merge them with the previous request. This may be overkill for an app that fetches only 12 characters, and the server delay should - normally - remain the same.
 
 ## Testing
 
@@ -111,4 +111,4 @@ The last code coverage report is as following (and can be obtained by running `y
 
 |                             |  % Stmts | % Branch |  % Funcs |  % Lines |
 |-----------------------------|----------|----------|----------|----------|
-|All files                    |    93.26 |    94.44 |    98.08 |    96.09 |
+|All files                    |    95.12 |    93.14 |    98.31 |    97.35 |
