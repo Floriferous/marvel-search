@@ -181,6 +181,20 @@ input {
   padding: 0 16px;
 }
 
+.pagination button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.pagination button:hover {
+  opacity: 0.6;
+}
+
 @keyframes appear {
   from {
     opacity: 0;
