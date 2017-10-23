@@ -1,4 +1,5 @@
 import { mapStateToProps } from '../CharacterListContainer';
+import constants from '../../config/constants';
 
 describe('CharacterListContainer', () => {
   describe('mapStateToProps', () => {
@@ -9,7 +10,7 @@ describe('CharacterListContainer', () => {
         search: '',
         pagination: 0,
         searchResults: {
-          'test-0': { characters: [{ id: 0 }] },
+          'test-0': { characters: [{ id: 0 }], total: 6 },
           'a-0': { characters: [{ id: 0 }] },
         },
         bookmarks: { 10: { name: 'hello', id: 10 } },
@@ -20,6 +21,17 @@ describe('CharacterListContainer', () => {
       expect(mapStateToProps(store).isSearching).toBe(false);
       store.search = 'a';
       expect(mapStateToProps(store).isSearching).toBe(true);
+    });
+
+    it('returns showPagination to be false if total is smaller than CHARACTERS_PER_PAGE', () => {
+      store.search = 'a';
+      expect(mapStateToProps(store).showPagination).toBe(false);
+    });
+
+    it('returns showPagination to be true if total is larger than CHARACTERS_PER_PAGE', () => {
+      store.search = 'a';
+      store.searchResults['a-0'].total = constants.CHARACTERS_PER_PAGE + 1;
+      expect(mapStateToProps(store).showPagination).toBe(true);
     });
 
     describe('when search is an empty string', () => {
