@@ -133,17 +133,25 @@ describe('search action creators', () => {
     });
   });
 
-  describe('changePagination', () => {
-    it('dispatches changePagination and adds returned results', () => {
+  describe('pagination', () => {
+    it('dispatches incrementPagination and adds returned results', () => {
       const newPagination = 1;
-      const expectedActions = ['CHANGE_PAGINATION', 'ADD_SEARCH_RESULTS'];
-      return store.dispatch(search.changePagination(newPagination)).then(() => {
-        expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
-      });
+      const expectedActions = ['INCREMENT_PAGINATION', 'ADD_SEARCH_RESULTS'];
+      return store
+        .dispatch(search.incrementPagination(newPagination))
+        .then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
     });
 
-    it('throws if pagination is not a number', () => {
-      expect(() => search.changePagination('')()).toThrow('should be a number');
+    it('dispatches decrementPagination and adds returned results', () => {
+      const newPagination = 1;
+      const expectedActions = ['DECREMENT_PAGINATION', 'ADD_SEARCH_RESULTS'];
+      return store
+        .dispatch(search.incrementPagination(newPagination))
+        .then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
     });
   });
 });
