@@ -49,7 +49,7 @@ export const fetchCharacters = (dispatch, getState) => {
     return Promise.resolve();
   }
 
-  return api.fetchCharacters(search).then((data) => {
+  return api.fetchCharacters(search, pagination).then((data) => {
     dispatch({ type: 'ADD_SEARCH_RESULTS', searchKey, data });
   });
 };
@@ -65,12 +65,12 @@ export const changeSearch = search => (dispatch, getState) => {
   return Promise.resolve();
 };
 
-export const changePagination = pagination => (dispatch, getState) => {
-  if (typeof pagination === 'number') {
-    dispatch({ type: 'CHANGE_PAGINATION', pagination });
-  } else {
-    throw new Error('pagination should be a number');
-  }
+export const incrementPagination = () => (dispatch, getState) => {
+  dispatch({ type: 'INCREMENT_PAGINATION' });
+  return fetchCharacters(dispatch, getState);
+};
 
+export const decrementPagination = () => (dispatch, getState) => {
+  dispatch({ type: 'DECREMENT_PAGINATION' });
   return fetchCharacters(dispatch, getState);
 };
