@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import * as actions from '../actions/bookmarks';
 import getClosestSearchResults from '../utils/getClosestSearchResults';
+import constants from '../config/constants';
 
 export const mapStateToProps = ({
   search,
@@ -32,6 +33,7 @@ export const mapStateToProps = ({
     data,
     isSearching: !!search,
     isLoading,
+    showPagination: data.total > constants.CHARACTERS_PER_PAGE,
   };
 };
 
