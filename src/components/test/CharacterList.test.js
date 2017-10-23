@@ -3,10 +3,14 @@ import ConnectedCharacterList, { CharacterList } from '../CharacterList';
 
 describe('CharacterList', () => {
   let props;
-  const component = () => testComponent(CharacterList, props);
+  const component = () => testComponent(CharacterList, props, true);
 
   beforeEach(() => {
-    props = { isSearching: false, toggleBookmark: jest.fn() };
+    props = {
+      isSearching: false,
+      toggleBookmark: jest.fn(),
+      showPagination: false,
+    };
     testComponent.reset();
   });
 
@@ -41,6 +45,18 @@ describe('CharacterList', () => {
     props.characters = null;
     expect(component().find('Empty').length).toBe(1);
   });
+
+  it('does not render Pagination if showPagination is false', () => {
+    props.showPagination = false;
+    expect(component().find(Pagination).length).toBe(0);
+  });
+
+  // FIXME: Unable to properly test the existence of connected components
+  it('renders Pagination if showPagination is true');
+  // , () => {
+  // props.showPagination = true;
+  // expect(component().find(Pagination).length).toBe(1);
+  // });
 
   describe('when characters is a non empty array', () => {
     beforeEach(() => {

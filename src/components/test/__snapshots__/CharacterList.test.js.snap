@@ -7,6 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Unknown
     characters={undefined}
     isSearching={false}
+    showPagination={false}
     toggleBookmark={[Function]}
 />,
   Symbol(enzyme.__renderer__): Object {
@@ -44,6 +45,15 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
       },
     },
   },

@@ -16,6 +16,7 @@ describe('HomePage', () => {
     expect(component().find('main').length).toBe(1);
   });
 
+  // FIXME: Unable to properly test the existence of connected components
   it('renders an h1, Input, CharacterList, and Disclaimer');
   // , () => {
   //   expect(component().find('h1').length).toBe(1);
