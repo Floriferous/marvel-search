@@ -144,6 +144,23 @@ describe('search action creators', () => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
       });
+
+      it('does dispatch ADD_SEARCH_RESULTS if pagination is larger than 0, even if a better cache exists', () => {
+        store = mockStore({
+          search: 'asd',
+          pagination: 1,
+          searchResults: { 'a-1': { characters: [] } },
+        });
+        const newSearch = 'asd';
+        const expectedActions = [
+          'CHANGE_SEARCH',
+          'RESET_PAGINATION',
+          'ADD_SEARCH_RESULTS',
+        ];
+        return store.dispatch(search.changeSearch(newSearch)).then(() => {
+          expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
+        });
+      });
     });
   });
 
