@@ -44,5 +44,12 @@ export const fetchCharacters = (search, pagination) =>
       }
       throw new Error(`${response.status}: ${response.statusText}`);
     })
-    .then(json => json.data && json.data.results)
-    .then(result => result.map(({ name, id, thumbnail }) => ({ name, id, thumbnail })));
+    .then(json => json.data && json.data)
+    .then(data => ({
+      ...data,
+      results: data.results.map(({ name, id, thumbnail }) => ({
+        name,
+        id,
+        thumbnail,
+      })),
+    }));
