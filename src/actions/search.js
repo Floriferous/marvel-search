@@ -5,13 +5,14 @@ export const shouldSearch = (newSearch, searchResults, closestResults) => {
   if (
     searchResults &&
     Object.keys(searchResults).length > 0 &&
-    closestResults
+    closestResults &&
+    closestResults.characters
   ) {
-    if (closestResults.length === 0) {
+    if (closestResults.characters.length === 0) {
       return false;
     }
 
-    const names = closestResults.map(character => character.name);
+    const names = closestResults.characters.map(character => character.name);
     const allNamesStillMatch = names.every(name => name.indexOf(newSearch) === 0);
     if (allNamesStillMatch) {
       return false;
@@ -35,7 +36,7 @@ export const fetchCharacters = (dispatch, getState) => {
   if (searchResults && searchResults[searchKey]) {
     return Promise.resolve();
   }
-  const { characters: closestResults } = getClosestSearchResults(
+  const { data: closestResults } = getClosestSearchResults(
     searchResults,
     search,
     pagination,
@@ -48,18 +49,18 @@ export const fetchCharacters = (dispatch, getState) => {
     return Promise.resolve();
   }
 
-  return api.fetchCharacters(search).then((characters) => {
-    dispatch({ type: 'ADD_SEARCH_RESULTS', searchKey, characters });
+  return api.fetchCharacters(search).then((data) => {
+    dispatch({ type: 'ADD_SEARCH_RESULTS', searchKey, data });
   });
 };
 
 export const changeSearch = search => (dispatch, getState) => {
   dispatch({ type: 'CHANGE_SEARCH', search });
+  dispatch({ type: 'RESET_PAGINATION' });
 
   if (search) {
     return fetchCharacters(dispatch, getState);
   }
-  dispatch({ type: 'RESET_PAGINATION' });
 
   return Promise.resolve();
 };
