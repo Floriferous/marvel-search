@@ -2,8 +2,10 @@ export const initialState = 0;
 
 const pagination = (state = initialState, action) => {
   switch (action.type) {
-    case 'CHANGE_PAGINATION':
-      return action.pagination;
+    case 'DECREMENT_PAGINATION':
+      return action.pagination - 1;
+    case 'INCREMENT_PAGINATION':
+      return action.pagination + 1;
     case 'RESET_PAGINATION':
       return initialState;
     default:
