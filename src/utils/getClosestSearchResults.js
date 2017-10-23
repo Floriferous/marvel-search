@@ -20,10 +20,10 @@ const getClosestSearchResults = (searchResults, search, pagination) => {
   let broaderResults;
   let isExactSearch;
 
-  // Return immediately if search length equals 1
-  if (search.length === 1) {
+  // Return immediately if search length equals 1 or pagination is larger than 0
+  if (search.length === 1 || pagination > 0) {
     return {
-      data: searchResults[createSearchKey(search, pagination)],
+      data: searchResults[createSearchKey(search, pagination)] || {},
       isLoading: false, // taken care of by CharacterList
     };
   }
@@ -36,7 +36,7 @@ const getClosestSearchResults = (searchResults, search, pagination) => {
       break;
     }
   }
-  return { data: broaderResults, isLoading: !isExactSearch };
+  return { data: broaderResults || {}, isLoading: !isExactSearch };
 };
 
 export default getClosestSearchResults;
