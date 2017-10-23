@@ -8,7 +8,10 @@ describe('CharacterListContainer', () => {
       store = {
         search: '',
         pagination: 0,
-        searchResults: { 'test-0': [{ id: 0 }], 'a-0': [{ id: 0 }] },
+        searchResults: {
+          'test-0': { characters: [{ id: 0 }] },
+          'a-0': { characters: [{ id: 0 }] },
+        },
         bookmarks: { 10: { name: 'hello', id: 10 } },
       };
     });
@@ -27,14 +30,14 @@ describe('CharacterListContainer', () => {
       });
     });
 
-    describe('when the current search results exits', () => {
+    describe('when the current search results exist', () => {
       beforeEach(() => {
         store.search = 'a';
       });
 
       it('returns the characters for a search if they exist', () => {
         expect(mapStateToProps(store).characters).toEqual([
-          { ...store.searchResults['a-0'][0], isBookmarked: false },
+          { ...store.searchResults['a-0'].characters[0], isBookmarked: false },
         ]);
       });
 
@@ -50,7 +53,10 @@ describe('CharacterListContainer', () => {
       it('returns the closest search if it exists', () => {
         // the results from 'test'
         expect(mapStateToProps(store).characters).toEqual([
-          { ...store.searchResults['test-0'][0], isBookmarked: false },
+          {
+            ...store.searchResults['test-0'].characters[0],
+            isBookmarked: false,
+          },
         ]);
       });
 

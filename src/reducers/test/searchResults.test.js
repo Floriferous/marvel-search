@@ -9,10 +9,10 @@ describe('searchResults reducer', () => {
     const action = {
       type: 'ADD_SEARCH_RESULTS',
       searchKey: 'test',
-      characters: [{ id: 'testId' }],
+      data: { characters: [{ id: 'testId' }] },
     };
     expect(searchResults(initialState, action)).toEqual({
-      [action.searchKey]: action.characters,
+      [action.searchKey]: action.data,
     });
   });
 });
