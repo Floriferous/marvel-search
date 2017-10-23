@@ -8,27 +8,28 @@ export const mapStateToProps = ({
   searchResults,
   bookmarks,
 }) => {
-  let characters;
+  let data = {};
   let isLoading = false;
-  if (search) {
-    ({ characters, isLoading } = getClosestSearchResults(
+  if (search && pagination === 0) {
+    ({ data, isLoading } = getClosestSearchResults(
       searchResults,
       search,
       pagination,
     ));
   } else {
-    characters = Object.keys(bookmarks).map(bookmarkId => bookmarks[bookmarkId]);
+    data.characters = Object.keys(bookmarks).map(bookmarkId => bookmarks[bookmarkId]);
   }
 
-  const charactersWithBookmarks =
-    characters &&
-    characters.map(character => ({
+  // add bookmarks
+  if (data.characters) {
+    data.characters = data.characters.map(character => ({
       ...character,
       isBookmarked: !!bookmarks[character.id],
     }));
+  }
 
   return {
-    characters: charactersWithBookmarks,
+    data,
     isSearching: !!search,
     isLoading,
   };

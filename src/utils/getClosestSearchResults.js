@@ -23,7 +23,7 @@ const getClosestSearchResults = (searchResults, search, pagination) => {
   // Return immediately if search length equals 1
   if (search.length === 1) {
     return {
-      characters: searchResults[createSearchKey(search, pagination)],
+      data: searchResults[createSearchKey(search, pagination)],
       isLoading: false, // taken care of by CharacterList
     };
   }
@@ -36,7 +36,7 @@ const getClosestSearchResults = (searchResults, search, pagination) => {
       break;
     }
   }
-  return { characters: broaderResults, isLoading: !isExactSearch };
+  return { data: broaderResults, isLoading: !isExactSearch };
 };
 
 export default getClosestSearchResults;

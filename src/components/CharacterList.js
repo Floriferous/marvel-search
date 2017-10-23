@@ -6,8 +6,14 @@ import Character from './Character';
 import Empty from './Empty';
 import Loading from './Loading';
 import CharacterListHelper from './CharacterListHelper';
+import Pagination from './Pagination';
 
-export const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
+export const CharacterList = ({
+  data: { characters },
+  isSearching,
+  toggleBookmark,
+  showPagination,
+}) => {
   if (isSearching && !characters) {
     return <Loading />;
   } else if (!characters || characters.length === 0) {
@@ -26,18 +32,19 @@ export const CharacterList = ({ characters, isSearching, toggleBookmark }) => {
           />
         ))}
       </ul>
+      {showPagination && <Pagination />}
     </div>
   );
 };
 
 CharacterList.propTypes = {
-  characters: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.objectOf(PropTypes.any),
   isSearching: PropTypes.bool.isRequired,
   toggleBookmark: PropTypes.func.isRequired,
 };
 
 CharacterList.defaultProps = {
-  characters: undefined,
+  data: undefined,
 };
 
 export default CharacterListContainer(CharacterList);
