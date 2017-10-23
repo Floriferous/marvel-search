@@ -171,6 +171,7 @@ input {
 }
 
 .pagination {
+  position: relative;
   display: flex;
   width: 100%;
   align-items: center;
@@ -182,6 +183,7 @@ input {
 }
 
 .pagination button {
+  position: absolute;
   background: none;
   border: none;
   cursor: pointer;
@@ -193,6 +195,14 @@ input {
 
 .pagination button:hover {
   opacity: 0.6;
+}
+
+.pagination .decrement {
+  right: calc(50% + 16px);
+}
+
+.pagination .increment {
+  left: calc(50% + 16px);
 }
 
 @keyframes appear {
