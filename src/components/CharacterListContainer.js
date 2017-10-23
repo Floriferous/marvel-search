@@ -11,7 +11,7 @@ export const mapStateToProps = ({
 }) => {
   let data = {};
   let isLoading = false;
-  if (search && pagination === 0) {
+  if (search) {
     ({ data, isLoading } = getClosestSearchResults(
       searchResults,
       search,
@@ -30,7 +30,7 @@ export const mapStateToProps = ({
   }
 
   return {
-    data,
+    characters: data.characters,
     isSearching: !!search,
     isLoading,
     showPagination: data.total > constants.CHARACTERS_PER_PAGE,

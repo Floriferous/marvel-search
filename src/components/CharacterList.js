@@ -9,7 +9,7 @@ import CharacterListHelper from './CharacterListHelper';
 import Pagination from './Pagination';
 
 export const CharacterList = ({
-  data: { characters },
+  characters,
   isSearching,
   toggleBookmark,
   showPagination,
@@ -38,13 +38,14 @@ export const CharacterList = ({
 };
 
 CharacterList.propTypes = {
-  data: PropTypes.objectOf(PropTypes.any),
+  characters: PropTypes.objectOf(PropTypes.any),
   isSearching: PropTypes.bool.isRequired,
   toggleBookmark: PropTypes.func.isRequired,
+  showPagination: PropTypes.bool.isRequired,
 };
 
 CharacterList.defaultProps = {
-  data: undefined,
+  characters: undefined,
 };
 
 export default CharacterListContainer(CharacterList);
