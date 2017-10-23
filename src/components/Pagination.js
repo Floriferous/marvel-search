@@ -14,7 +14,7 @@ const Pagination = ({
         Previous
       </button>
     )}
-    <p className="value">{pagination}</p>
+    <p className="value">{pagination + 1}</p>
     <button className="increment" onClick={incrementPagination}>
       Next
     </button>
