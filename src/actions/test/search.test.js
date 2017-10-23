@@ -148,7 +148,7 @@ describe('search action creators', () => {
       const newPagination = 1;
       const expectedActions = ['DECREMENT_PAGINATION', 'ADD_SEARCH_RESULTS'];
       return store
-        .dispatch(search.incrementPagination(newPagination))
+        .dispatch(search.decrementPagination(newPagination))
         .then(() => {
           expect(store.getActions().map(a => a.type)).toEqual(expectedActions);
         });
