@@ -7,6 +7,7 @@ export const Pagination = ({
   pagination,
   decrementPagination,
   incrementPagination,
+  showNext,
 }) => (
   <div className="pagination">
     {pagination > 0 && (
@@ -15,9 +16,11 @@ export const Pagination = ({
       </button>
     )}
     <p className="value">{pagination + 1}</p>
-    <button className="increment" onClick={incrementPagination}>
-      Next
-    </button>
+    {showNext && (
+      <button className="increment" onClick={incrementPagination}>
+        Next
+      </button>
+    )}
   </div>
 );
 
@@ -25,6 +28,7 @@ Pagination.propTypes = {
   pagination: PropTypes.number.isRequired,
   incrementPagination: PropTypes.func.isRequired,
   decrementPagination: PropTypes.func.isRequired,
+  showNext: PropTypes.bool.isRequired,
 };
 
 export default PaginationContainer(Pagination);

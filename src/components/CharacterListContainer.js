@@ -29,11 +29,15 @@ export const mapStateToProps = ({
     }));
   }
 
+  const currentOffset = pagination * constants.CHARACTERS_PER_PAGE;
+  const showNext = currentOffset + constants.CHARACTERS_PER_PAGE < data.total;
+
   return {
     characters: data.characters,
     isSearching: !!search,
     isLoading,
     showPagination: data.total > constants.CHARACTERS_PER_PAGE,
+    showNext,
   };
 };
 

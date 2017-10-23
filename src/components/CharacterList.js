@@ -13,6 +13,7 @@ export const CharacterList = ({
   isSearching,
   toggleBookmark,
   showPagination,
+  showNext,
 }) => {
   if (isSearching && !characters) {
     return <Loading />;
@@ -32,7 +33,7 @@ export const CharacterList = ({
           />
         ))}
       </ul>
-      {showPagination && <Pagination />}
+      {showPagination && <Pagination showNext={showNext} />}
     </div>
   );
 };
