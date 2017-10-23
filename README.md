@@ -70,7 +70,7 @@ The search results and bookmarks are all stored inside an object for O(1) queryi
 
 - The store consists of 4 reducers:
     - `bookmarks`: handles the bookmarks in an object
-    - `pagination`: handles the pagination (though not yet implemented in the app)
+    - `pagination`: handles the pagination increments, decrement and resets
     - `search`: handles the search box and its value
     - `searchResults`: stores each previous search result as a combination of the search value and pagination
 
@@ -83,13 +83,13 @@ Most of the app is fairly straight-forward, so where most of the optimization ha
 - When searching, previous results are checked to make sure a new query is truly necessary. If a previous result returned an empty array, a new query is not being made.
 - Since all queries to the MARVEL API are made with `startingWith` the `name` field. If a new character is typed and it still matches all previous names, a new query will not be issued.
     - As an example, if `cap` returned `Captain America` and `Captain Africa`, typing `capt` will not trigger a new query. A new query will only be issued when searching for `captain aX`.
+- When pagination is larger than 0, exact results are expected and therefore fetched every time, the results are still cached and can be visited subsequently
 
 
 ## Tradeoffs and limitations
 
-- The name lookup search optimization is only performed on the 12 initial results, any subsequent ones, which would be visited through pagination, will therefore not necessarily match the exact search results (since the exact search is a subset of all previous searches, this shouldn't ever filter out possible characters).
-    - This can be solved by fetching exact results upon visiting anything but the first page of results, which should be exact (if it turns out there are exactly 12 results, this might trigger a weird UX flicker that automatically goes back to page 0)
 - Almost all of the CSS relies on flexbox, which will break the layout on IE < 10. I consider this acceptable for MARVEL tech-savvy nerds :)
+- There are certainly more of these, mostly related to redux (which I don't yet know enough of), and more clever usage of MARVEL's API.
 
 
 ## Future work
@@ -97,11 +97,11 @@ Most of the app is fairly straight-forward, so where most of the optimization ha
 The app can be improved in several ways, following is a list of possible additions:
 
 - App should be tested on Internet Explorer/Edge.
-- Pagination was not implemented, however majority of the logic is ready.
 - A React v16 ErrorBoundary component could be added to display errors properly. However when using react-scripts, it is overridden by a custom error so it didn't feel necessary.
 - No integration or acceptance tests were written, but should be added as an additional layer of reliability.
 - The entire store could be persisted to localStorage for fast reusability on subsequent visits. Each query weighs about 2kB in the store, so with a 5MB limit on localStorage, one could save more than 2000 queries without worrying about exceeding the limit.
-
+- One could always pre-fetch one extra pagination, so that the user does not have to wait. So on the visit of page 1, already fetch page 2. As with most search engines, I assume users to find their result on the first page the majority of the time, so it might not be that useful for most users.
+- It should be possible to perform a more optimal name comparison for subsequent searches, and instead of refetching all of the characters, search for a subset of them and merge them with the previous request.
 
 ## Testing
 
