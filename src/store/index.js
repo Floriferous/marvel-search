@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import { getValueAtKey } from '../utils/localStorage';
 import rootReducer from '../reducers';
 
-const configureStore = testInitialStore => {
+const configureStore = (testInitialStore) => {
   const bookmarks = getValueAtKey('bookmarks') || {};
 
   const middleWares = [];
