@@ -4,15 +4,15 @@ Search for your favorite MARVEL characters, bookmark and save the ones you like.
 
 ## Table of Contents
 
-* [Installation](#markdown-header-installation)
-* [Code structure](#markdown-header-code-structure)
-* [App design](#markdown-header-app-design)
-* [React component design](#markdown-header-react-component-design)
-* [Redux design](#markdown-header-redux-design)
-* [Search optimization](#markdown-header-search-optimization)
-* [Tradeoffs and limitations](#markdown-header-tradeoffs-and-limitations)
-* [Future work](#markdown-header-future-work)
-* [Testing](#markdown-header-testing)
+* [Installation](#installation)
+* [Code structure](#code-structure)
+* [App design](#app-design)
+* [React component design](#react-component-design)
+* [Redux design](#redux-design)
+* [Search optimization](#search-optimization)
+* [Tradeoffs and limitations](#tradeoffs-and-limitations)
+* [Future work](#future-work)
+* [Testing](#testing)
 
 ## Installation
 
