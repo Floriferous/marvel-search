@@ -42,9 +42,8 @@ export const fetchCharacters = (search, pagination) =>
       }
       throw new Error(`${response.status}: ${response.statusText}`);
     })
-    .then(json => json.data && json.data)
     // Turns each query from 55kB to ~5kB
-    .then(({ results, total }) => ({
+    .then(({ data: { results, total } }) => ({
       total,
       characters: results.map(({ name, id, thumbnail }) => ({
         name,

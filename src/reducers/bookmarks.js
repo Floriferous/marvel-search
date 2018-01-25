@@ -10,6 +10,18 @@ const bookmarks = (state = initialState, action) => {
       const { [action.id.toString()]: deletedItem, ...rest } = state;
       return rest;
     }
+    // INCREASE_BOOKMARK_POSITION
+    case 'INCREASE_BOOKMARK_POSITION': {
+      const index = state.findIndex(id => id === action.id);
+      const newState = state.slice().filter(id => id !== action.id);
+      return [
+        ...newState.slice(0, index - 1),
+        action.id,
+        ...newState.slice(index - 1),
+      ];
+    }
+
+    // DECREASE_BOOKMARK_POSITION
     default:
       return state;
   }

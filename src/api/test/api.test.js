@@ -8,16 +8,17 @@ describe('marvel API', () => {
     let search;
     let pagination;
 
-    it('returns a list of characters');
-    // FIXME MARVEL throws a weird '409: Conflict' error here
-    // might be related to testing environment which uses node-fetch
-    // It is already tested (though not fully) in the search action creator tests with mocks
+    it('returns a list of characters', () => {
+      // FIXME MARVEL throws a weird '409: Conflict' error here
+      // might be related to testing environment which uses node-fetch
+      // It is already tested (though not fully) in the search action creator tests with mocks
 
-    // search = 'sp';
-    // pagination = 0;
-    // return fetchCharacters(search, pagination).then((characters) => {
-    //   expect(characters).toBeDefined();
-    // });
+      search = 'sp';
+      pagination = 0;
+      return fetchCharacters(search, pagination).then((characters) => {
+        expect(characters).toBeDefined();
+      });
+    });
   });
 
   describe('createUrl', () => {
