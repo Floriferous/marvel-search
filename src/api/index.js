@@ -1,4 +1,4 @@
-import keys from '../../API_KEY';
+import keys from '../API_KEY';
 import constants from '../config/constants';
 
 export const endpoint = 'https://gateway.marvel.com/v1/public/characters';
@@ -12,11 +12,11 @@ export const endpoint = 'https://gateway.marvel.com/v1/public/characters';
  * @return {String}
  */
 export const createQuery = params =>
-  params
+  (params
     ? `?${Object.keys(params)
-        .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
-        .join('&')}`
-    : '';
+      .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+      .join('&')}`
+    : '');
 
 export const createUrl = (search, pagination) =>
   endpoint +
@@ -36,7 +36,7 @@ export const fetchCharacters = (search, pagination) =>
       'Access-Control-Allow-Origin': 'http://localhost:3000',
     },
   })
-    .then(response => {
+    .then((response) => {
       if (response.status === 200) {
         return response.json();
       }
